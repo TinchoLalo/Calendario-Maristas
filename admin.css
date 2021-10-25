@@ -200,6 +200,68 @@
     border-radius: 10rem;
 }
 
+#tutorial {
+    overflow: hidden;
+    display: block;
+    background-image: linear-gradient(135deg, #3e699d 0%, #4290a5 100%);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 99;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: 70%;
+    height: 75%;
+    border-radius: 5rem;
+}
+#tutorial h3 {
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 4rem;
+    font-weight: 700;
+    font-family: fredoka one, Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 3rem;
+}
+#tutorial iframe {
+    text-align: center;
+    margin: 0.9rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: auto;
+    border-radius: 3rem;
+    width: 80%;
+    height: 70%;
+}
+#tuto {
+    overflow: hidden;
+    display: block;
+    background: #fffffff4;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 95;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+#tuto h3 i{
+    float: right;
+    font-size: 3rem;
+    margin-right: 2rem;
+    margin-top: -3rem;
+    cursor: pointer;
+}
 
 
 /*/ FIN DEL EDITOR /*/

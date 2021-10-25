@@ -845,6 +845,15 @@ login.addEventListener('submit', (e) => {
       });
 });
 
+// ==== M A N T E N E R    L A     S E C I Ó N ====
+auth.onAuthStateChanged(user => {
+ 
+    if(user != null){
+        document.getElementById('gestor').style.display="none";
+    }
+
+
+});
 // ==== C E R R A R   S E C I Ó N ====
 
 function loginOut() {
@@ -1337,3 +1346,14 @@ const crearyou = (you2,video)=>
         video: video,
     }).then(() => alert("Video Guardado Correctamente")) // Documento creado
     .catch((error) => alert("Error al Guardar el Video", error));
+
+
+
+
+// TUTORIAL
+function CerrarTuto(){
+    document.getElementById('tuto').style.display="none";
+}
+function VerTuto(){
+    document.getElementById('tuto').style.display="block";
+}
