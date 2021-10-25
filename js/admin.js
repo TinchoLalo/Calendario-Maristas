@@ -112,6 +112,7 @@ function Calendar(mescal){
     var desyou = document.getElementById('fech').innerHTML;
     const destacadosRef = dt.collection(collection).doc('destacados|'+desyou);
     var cantidad = 0;
+    document.getElementById('cantStar').innerHTML = "";
     document.getElementById('destac').innerHTML = '';
 
     destacadosRef.get().then((doc) => {
