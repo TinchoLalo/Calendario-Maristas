@@ -221,7 +221,7 @@ function Calendar(mescal){
 function InsertStar(){
     var cantidad = document.getElementById('cantStar').innerHTML;
 
-    if( cantidad == 0){
+    if( cantidad == 0 || cantidad == ''){
         document.getElementById('destac').innerHTML = '<h4>No hay destacados</h4>';
         document.getElementById('fl').style.display = 'none';
         document.getElementById('fr').style.display = 'none';
