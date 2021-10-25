@@ -1208,10 +1208,9 @@ subirA.addEventListener('click', e=> {
     }, 
     function completado(){
         var desyou2 = document.getElementById('fech').innerHTML;
-        dt.collection(collection).doc("video|"+desyou2).set({
+        dt.collection(collection).doc("destacados|"+desyou2).set({
             cantidad: canti,
-        }).then(() => alert("Video Guardado Correctamente")) // Documento creado
-        .catch((error) => alert("Error al Actualizar destacados", error));
+        })
         
         
         if (document.getElementById('uploaderA').value = 100) {
