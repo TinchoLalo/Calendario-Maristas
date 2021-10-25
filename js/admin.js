@@ -855,7 +855,7 @@ function loginOut() {
 
 
 
-  
+
 // BORRAR
 
 function Borrar(){
@@ -1324,14 +1324,15 @@ subirV.addEventListener('click', e=> {
 
     var you2 = document.getElementById('fech').innerHTML
     var yourl = document.getElementById('yourl').value;
+    var video = 'https://www.youtube.com/embed/'+yourl;
     const youRef = firebase.firestore().collection(collection).doc("video|"+you2);
     crearyou(you2, yourl);
 
     
 });
 
-const crearyou = (you2,yourl)=>
+const crearyou = (you2,video)=>
     dt.collection(collection).doc("video|"+you2).set({
-        video: yourl,
+        video: video,
     }).then(() => alert("Video Guardado Correctamente")) // Documento creado
     .catch((error) => alert("Error al Guardar el Video", error));
