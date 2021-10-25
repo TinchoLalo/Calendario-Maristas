@@ -77,7 +77,8 @@ function Calendar(mescal){
     // Obtener todas las imágenes de DESTACADOS
     var desyou = document.getElementById('fech').innerHTML;
     const destacadosRef = dt.collection(collection).doc('destacados|'+desyou);
-    var cantidad;
+    var cantidad = 0;
+    document.getElementById('cantStar').innerHTML = "";
     document.getElementById('destac').innerHTML = '';
 
     destacadosRef.get().then((doc) => {
