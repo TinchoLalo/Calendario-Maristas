@@ -1208,18 +1208,12 @@ subirA.addEventListener('click', e=> {
     }, 
     function completado(){
         var desyou2 = document.getElementById('fech').innerHTML;
-        const desRef = dt.collection(collection).doc('destacados|'+desyou2);
-        
-        desRef
-        .update({
+        dt.collection(collection).doc("video|"+desyou2).set({
             cantidad: canti,
-        })
-        .then(() => {
-            document.getElementById('cantStar').innerHTML = canti;
-        })
-        .catch((error) => {
-            alert("Error al Actulizar Destacados", error);
-        });
+        }).then(() => alert("Video Guardado Correctamente")) // Documento creado
+        .catch((error) => alert("Error al Actualizar destacados", error));
+        
+        
         if (document.getElementById('uploaderA').value = 100) {
         document.getElementById('uploaderA').value = 0;
         }
