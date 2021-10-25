@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Calendario Maristas</title>
+    <!-- icono del sitio -->
+    <link rel="shortcut icon" href="img/logoRecurso 7.svg" type="image">
+
+
+    <link rel="stylesheet" href="admin.css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<!-- ====  Cuerpo ==== -->
+<body>
+
+    <header class="header-area header-sticky">
+
+        <nav class="main-nav " id="inicio">
+            <ul class="nav" >
+                <li><a href="http://www.maristasanrafael.org.ar/">Inicio</a></li>
+                <li><a href="#calendar" >Calendario</a></li>
+                <li><a href="#destacados">Destacados</a></li>
+                <li><a href="#noticias">Noticias</a></li>
+                <li><a href="#noticias">Tutorial</a></li>
+                <li><a href="#noticias">Salir</a></li>
+            
+            </ul>
+            <!-- ***** Menu End ***** -->
+        </nav>
+        <div class="burger" onclick="VerMenu()">
+            <div class="line-menu"><br></div>
+            <div class="line-menu"><br></div>
+            <div class="line-menu"><br></div>
+        </div>
+        <div class="menu-movil" id="movil" style="display: none;">
+            <ul class="nav-movil" >
+                <h3 class="close" onclick="CerrarMenu()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                <h2> MENU</h2>
+                <div class="line-menu"><br></div>
+                <li><a href="http://www.maristasanrafael.org.ar/" onclick="CerrarMenu()">Inicio</a></li>
+                <li><a href="#calendar" onclick="CerrarMenu()">Calendario</a></li>
+                <li><a href="#destacados" onclick="CerrarMenu()">Destacados</a></li>
+                <li><a href="#noticias" onclick="CerrarMenu()">Noticias</a></li>
+                <li><a href="#noticias" onclick="CerrarMenu()">Tutorial</a></li>
+                <li><a href="#noticias" onclick="CerrarMenu()">Salir</a></li>
+            
+            </ul>
+        </div>
+    </header>
+    <div id="gestor" style="display: none;" >
+        <form id="login">
+            <div class="logo">
+                <img src="img/logoRecurso 8-8.png" alt="">
+            </div>
+            <h2>EDITOR DE CONTENIDO</h2>
+            <input type="email" placeholder="Cuenta" id="email">
+            <input type="password" placeholder="Contraseña" id="password">
+            <button>INGRESAR</button>
+            <a href="https://codernauta.com/" target="_blank" >Coder Nauta</a>
+        </form>
+    </div>
+    <div class="logo">
+        <img src="img/LOGO.png" alt="">
+    </div>
+    <div class="title">
+        <h1>EDITOR DE CONTENIDO</h1>
+    </div>
+    
+    <div class="banner">
+        <a href="#calendar">
+            <img src="" alt="" class="ban" id="BAN">
+        </a>
+        <div class="cambiar">
+            <div class="flechaL">
+                <img src="img/flechaL.png" alt="" onclick="Restar()" style="float: left;">
+            </div>
+            <div class="flechaR">
+                <img src="img/flechaR.png" alt="" onclick="Sumar()" style="float: right;" >
+            </div>
+           
+        </div>
+    </div>
+    <div id="cuerpo">
+        
+        
+        <div class="inicio">
+            <h2 id="titleAno"></h2>
+
+            <div id="pre2" style="display: none;">
+                <div id="activi2">
+                    <h3 onclick="Cerrar2()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+
+                    <h2 id="diaE"></h2>
+                    <br><br><br>
+
+                    <div id="actualizar">
+
+                        <div id="act1">
+                                                      
+                                <input type="text" id="titl1"   placeholder="Titulo">                    
+                                <textarea name="" id="des1" placeholder="Descripcion"></textarea>
+                                <input type="text" id="url1" placeholder="URL Ej: https://codernauta.com">
+                                <input type="text" id="link1" placeholder="Titulo del Enlace">
+                            
+                        </div>
+                        
+
+                        <div id="act2" style="display: none;">
+                                                       
+                                <input type="text" id="titl2"   placeholder="Titulo2">                    
+                                <textarea name="" id="des2" placeholder="Descripcion2"></textarea>
+                                <input type="text" id="url2" placeholder="URL Ej: https://codernauta.com">
+                                <input type="text" id="link2" placeholder="Titulo del Enlace">
+                            
+                        </div>
+                        <div id="act3" style="display: none;">
+                                                      
+                                <input type="text" id="titl3"   placeholder="Titulo3">                    
+                                <textarea name="" id="des3" placeholder="Descripcion3"></textarea>
+                                <input type="text" id="url3" placeholder="URL Ej: https://codernauta.com">
+                                <input type="text" id="link3" placeholder="Titulo del Enlace">
+                            
+                        </div>
+
+                    </div>
+
+                    <div  id="veract2">
+                        <form  style="display: block;margin-right: 10rem;">
+                            <button onclick="Quitar()">Quitar</button>
+                            <button onclick="Agregar()">Agregar</button>
+                            
+                        </form>
+ 
+                    </div>
+                </div>
+                <div id="editar">
+                    
+                    <div class="editor">
+                        <h4 onclick="Guardar()">Guardar</h4>
+                    </div>
+                </div>
+                
+                
+
+            </div>
+
+            <div id="pre3" style="display: none;">
+                <div id="activi3">
+                    <h3 onclick="Cerrar3()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+
+                    <h2 id="diaC"></h2>
+                    <br><br><br>
+
+                    <div id="crear">
+
+                        <div id="eact1">
+                                                      
+                                <input type="text" id="etitl1"   placeholder="Titulo">                    
+                                <textarea name="" id="edes1" placeholder="Descripcion"></textarea>
+                                <input type="text" id="eurl1" placeholder="URL Ej: https://codernauta.com">
+                                <input type="text" id="elink1" placeholder="Titulo del Enlace">
+                            
+                        </div>
+                        
+
+                        <div id="eact2" style="display: none;">
+                                                       
+                                <input type="text" id="etitl2"   placeholder="Titulo2">                    
+                                <textarea name="" id="edes2" placeholder="Descripcion2"></textarea>
+                                <input type="text" id="eurl2" placeholder="URL Ej: https://codernauta.com">
+                                <input type="text" id="elink2" placeholder="Titulo del Enlace">
+                            
+                        </div>
+                        <div id="eact3" style="display: none;">
+                                                      
+                                <input type="text" id="etitl3"   placeholder="Titulo3">                    
+                                <textarea name="" id="edes3" placeholder="Descripcion3"></textarea>
+                                <input type="text" id="eurl3" placeholder="URL Ej: https://codernauta.com">
+                                <input type="text" id="elink3" placeholder="Titulo del Enlace">
+                            
+                        </div>
+
+                    </div>
+
+                    <div  id="veract3">
+                        <form  style="display: block;margin-right: 10rem;">
+                            <button onclick="Quitar2()">Quitar</button>
+                            <button onclick="Agregar2()">Agregar</button>
+                            
+                        </form>
+ 
+                    </div>
+                </div>
+                <div id="editar">
+                    
+                    <div class="editor">
+                        <h4 onclick="Crear()">Crear</h4>
+                    </div>
+                </div>
+                
+                
+
+            </div>
+
+
+
+
+
+
+            <div id="pre" style="display: none;">
+                <div id="activi">
+                    <h3 onclick="Cerrar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+
+                    <h2 id="diaA">Actividades Día</h2>
+                    <br><br><br>
+
+                    <div id="actividades">
+                        
+                        
+                        
+                    </div>
+
+                    <div  id="veract">
+                        <form id="vermenos" style="display: none;opacity: 0;">
+                            <button >Anterior</button>
+                        </form>
+                        <form id="vermas" style="display: none;margin-right: 10rem;">
+                            <button >Siguiente</button>
+                        </form>
+ 
+                    </div>
+                </div>
+                <div id="editar">
+                    <div class="editor">
+                        <h4 onclick="Editar()">Editar</h4>
+                        <h4 onclick="Borrar()">Borrar</h4>
+                        <h4 onclick="Crear2()">Crear</h4>
+                    </div>
+                    <div id="borrar" style="display: none;">
+                        <h4 onclick="CancelarBorrar()">Cancelar</h4>
+                        <h4 onclick="AceptarBorrar()">Aceptar</h4>
+                    </div>
+                </div>
+                
+                
+
+            </div>
+
+            <div class="orientaciones" id="calendar" >
+
+
+                <table id="fecha">
+                <tr id="fila0" ><th ></th><th ></th><th ></th><th ></th><th ></th><th ></th><th ></th></tr>
+                <tr id="fila1" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                <tr id="fila2" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                <tr id="fila3" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                <tr id="fila4" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"> </th><th class="t"></th></tr>
+                <tr id="fila5" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                <tr id="fila6" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                    
+                </table>
+            </div>
+
+        </div>
+
+        
+        <br><br><br>
+        <div class="informacion">
+            <div class="cube"></div>
+            <h5>Hoy</h5>
+            <div class="circle2" ></div>
+            <h5>Actividades</h5>
+        </div>
+        
+        <br><br><br>
+    </div>
+
+
+    <section id="destacados">
+        <br><br>
+        <h2 >DESTACADOS</h2>
+        <div class="destacados" id="destac">
+            
+            
+
+            
+            
+        </div>
+
+        <button onclick="CrearStar()">
+            Crear
+        </button>
+
+
+        <div id="sub">
+
+            <div id="subir">
+
+                <div id="crearStar" style="display: none;">
+    
+                    <form id="subirA" >
+                        <br>
+                        <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                        <h3>Crear Archivo</h3>
+                        <div class="cont-subir">
+                          <input type="file" name="file" id="myFileA" value="upload">
+               
+                          
+                          <div id="crearA">
+                            <h5> 
+                              
+                              Subir
+                             
+                            </h5>
+                          </div>
+    
+                          <progress value="0" max="100" id="uploaderA"></progress>
+                          
+                        </div>
+                        <br>
+                        
+                      </form>
+                </div>
+                <div id="reemStar" style="display: none;">
+        
+                    <form id="subirB">
+                        <br>
+                        <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                        <h3>Reemplazar Archivo</h3>
+                        <div class="cont-subir">
+                          <input type="file" name="file" id="myFileB" value="upload">
+               
+                          
+                          <div id="crearB">
+                            <h5> 
+                              
+                              Reemplazar
+                             
+                            </h5>
+                          </div>
+    
+                          <progress value="0" max="100" id="uploaderB"></progress>
+                          
+                        </div>
+                        <br>
+                        
+                      </form>
+                </div>
+                
+                <div id="borrarStar" style="display: none;">
+        
+                    <form id="subirC">
+                        <br>
+                        <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                        <h3>Borrar Archivo</h3>
+                        <div class="cont-subir" style="display: inline-block; ">
+                          
+                            <div id="crearC">
+                                <h5> 
+                                  
+                                  Borrar
+                                 
+                                </h5>
+                            </div>
+                          
+                          
+                        </div>
+                        <br>
+                        
+                      </form>
+                </div>
+                <div id="editarStar" style="display: none;">
+        
+                    <form id="subirD">
+                        <br>
+                        <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                        <h3>Editar Archivo</h3>
+                        <div class="cont-subir" style="display: inline-block; ">
+                          
+                          <button onclick="ReemplazarStar()" id="subirID" class="subirBoton" style=" margin: 2rem;width: auto;"> Reemplazar</button>
+                          <button onclick="BorrarStar()" id="subirID" class="subirBoton" style=" margin: 2rem; width: auto;"> Borrar</button>
+                          
+                        </div>
+                        <br>
+                        
+                      </form>
+                </div>
+    
+            </div>
+
+        </div>
+        
+
+        
+
+        
+
+        <div id="fl" class="flech" >
+            <h3 onclick="IRestar()" style="float: left;"><i class="fa fa-arrow-left"></i></h3>
+        </div>
+        <div id="fr" class="flech">
+            <h3 onclick="ISumar()" style="float: right;"><i class="fa fa-arrow-right"></i></h3>
+        </div>
+
+        
+    </section>
+
+
+    <div id="video">
+        <div class="marco">
+            <iframe id="youtube"  src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <br><br><br>
+        <input type="text" placeholder="Enlace" id="yourl">
+        <div id="crearV">
+            <h5> 
+              
+              Guardar
+             
+            </h5>
+        </div>
+    </div>
+
+
+    <br><br>
+    <section id="noticias">
+        <h2 >NOTICIAS</h2>
+        <div class="noti">
+            <div id="enoti">
+                <input type="text" id="tenoti">
+                <textarea name="" id="desnoti" >
+
+                </textarea>
+            </div>
+            
+            
+            <button onclick="AgregarNoti()"> 
+                Guardar
+            </button>
+            <div id="notie" style="display: none;"></div>
+            
+        </div>
+        
+       
+
+
+    </section>
+
+   <footer>
+    <br><br>
+    <a href="https://codernauta.com/" target="_blank" rel="">Coder Nauta</a>
+    <h5 id="idi" style="display: none;"></h5>
+    <h4 id="max" style="display: none;"></h4>
+    <h4 id="fech" style="display: none;"></h4>
+    <h4 id="cantStar" style="display: none;"></h4>
+    <h4 id="nombreStar" style="display: none;"></h4>
+    <br><br>
+
+   </footer>
+
+       <!--====== FIREBASE ========-->	
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyC0K-C7fbaU9kT0IZPbOvzA38jEig5OsOQ",
+            authDomain: "coder-nauta.firebaseapp.com",
+            projectId: "coder-nauta",
+            storageBucket: "coder-nauta.appspot.com",
+            messagingSenderId: "213019654836",
+            appId: "1:213019654836:web:f50a6484a216189b5035e1",
+            measurementId: "G-7K4HFLKR4D"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const auth = firebase.auth();
+        var storage = firebase.storage();
+
+    </script>
+
+    <script src="/path-to/jquery.min.js"></script>
+    <script src="/path-to/jquery.plugin.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+
+   <script src="js/admin.js"></script>
+   
+
+
+</body>
+</html>

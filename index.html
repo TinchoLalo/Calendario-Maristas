@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Calendario Maristas</title>
+    <!-- icono del sitio -->
+    <link rel="shortcut icon" href="img/logoRecurso 7.svg" type="image">
+
+
+    <link rel="stylesheet" href="style.css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<!-- ====  Cuerpo ==== -->
+<body>
+    <header class="header-area header-sticky">
+
+        <nav class="main-nav " id="inicio">
+            <ul class="nav" >
+                <li><a href="http://www.maristasanrafael.org.ar/">Inicio</a></li>
+                <li><a href="#calendar" >Calendario</a></li>
+                <li><a href="#destacados">Destacados</a></li>
+                <li><a href="#noticias">Noticias</a></li>
+            
+            </ul>
+            <!-- ***** Menu End ***** -->
+        </nav>
+        <div class="burger" onclick="VerMenu()">
+            <div class="line-menu"><br></div>
+            <div class="line-menu"><br></div>
+            <div class="line-menu"><br></div>
+        </div>
+        <div class="menu-movil" id="movil" style="display: none;">
+            <ul class="nav-movil" >
+                <h3 class="close" onclick="CerrarMenu()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                <h2> MENU</h2>
+                <div class="line-menu"><br></div>
+                <li><a href="http://www.maristasanrafael.org.ar/" onclick="CerrarMenu()">Inicio</a></li>
+                <li><a href="#calendar" onclick="CerrarMenu()">Calendario</a></li>
+                <li><a href="#destacados" onclick="CerrarMenu()">Destacados</a></li>
+                <li><a href="#noticias" onclick="CerrarMenu()">Noticias</a></li>
+            
+            </ul>
+        </div>
+    </header>
+    
+
+
+    <div class="logo">
+        <img src="img/LOGO.png" alt="">
+    </div>
+    <div class="title" >
+        <h1>CALENDARIO MARISTAS</h1>
+    </div>
+    
+    <div class="banner">
+        <a href="#calendar">
+            <img src="" alt="" class="ban" id="BAN">
+        </a>
+        <div class="cambiar">
+            <div class="flechaL">
+                <img src="img/flechaL.png" alt="" onclick="Restar()" style="float: left;">
+            </div>
+            <div class="flechaR">
+                <img src="img/flechaR.png" alt="" onclick="Sumar()" style="float: right;" >
+            </div>
+           
+        </div>
+    </div>
+    <div id="cuerpo">
+        
+        
+        <div class="inicio">
+            <h2 id="titleAno"></h2>
+
+            <div id="pre" style="display: none;">
+                <div id="activi">
+                    <h3 onclick="Cerrar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+
+                    <h2 id="diaA">Actividades Día</h2>
+                    <br><br><br>
+
+                    <div id="actividades">
+                        
+                        
+                        
+
+                        
+                    </div>
+
+                    <div  id="veract">
+                        <form id="vermenos" style="display: inline-block;opacity: 0;">
+                            <button >Anterior</button>
+                        </form>
+                        <form id="vermas" style="display: inline-block;margin-right: 10rem;">
+                            <button >Siguiente</button>
+                        </form>
+                        
+               
+                        
+                    </div>
+                    
+                   
+                    
+                    
+
+                          
+
+                    
+
+                </div>
+
+            </div>
+
+            <div class="orientaciones" id="calendar" >
+
+
+                <table id="fecha">
+                <tr id="fila0" ><th ></th><th ></th><th ></th><th ></th><th ></th><th ></th><th ></th></tr>
+                <tr id="fila1" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                <tr id="fila2" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                <tr id="fila3" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                <tr id="fila4" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"> </th><th class="t"></th></tr>
+                <tr id="fila5" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                <tr id="fila6" ><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th><th class="t"></th></tr>
+                    
+                </table>
+            </div>
+
+        </div>
+
+        
+        <br><br><br>
+        <div class="informacion">
+            <div class="cube"></div>
+            <h5>Hoy</h5>
+            <div class="circle2" ></div>
+            <h5>Actividades</h5>
+        </div>
+        
+        <br><br><br>
+    </div>
+
+
+    <section id="destacados">
+        <br><br>
+        <h2 >DESTACADOS</h2>
+        <div class="destacados" id="destac">
+            
+            
+
+            
+            
+        </div>
+
+        
+
+        <div id="fl" class="flech" >
+            <h3 onclick="IRestar()" style="float: left;"><i class="fa fa-arrow-left"></i></h3>
+        </div>
+        <div id="fr" class="flech">
+            <h3 onclick="ISumar()" style="float: right;"><i class="fa fa-arrow-right"></i></h3>
+        </div>
+
+        
+    </section>
+
+    <div id="video">
+        <div class="marco">
+              
+            <iframe id="youtube"  src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        </div>
+        
+
+    </div>
+
+    
+
+    <br><br>
+    <section id="noticias">
+        <h2 >NOTICIAS</h2>
+        <div class="noti" id="noti">
+            
+        </div>
+       
+
+
+    </section>
+
+
+   <footer>
+    <br><br>
+    <a href="https://codernauta.com/" target="_blank" rel="">Coder Nauta</a>
+    <h4 id="max" style="display: none;"></h4>
+    <h4 id="cantStar" style="display: none;"></h4>
+    <h4 id="fech" style="display: none;"></h4>
+    <br><br>
+   </footer>
+
+       <!--====== FIREBASE ========-->	
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyC0K-C7fbaU9kT0IZPbOvzA38jEig5OsOQ",
+            authDomain: "coder-nauta.firebaseapp.com",
+            projectId: "coder-nauta",
+            storageBucket: "coder-nauta.appspot.com",
+            messagingSenderId: "213019654836",
+            appId: "1:213019654836:web:f50a6484a216189b5035e1",
+            measurementId: "G-7K4HFLKR4D"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var storage = firebase.storage();
+
+    </script>
+
+   <script src="js/main.js"></script>
+   
+
+
+
+</body>
+</html>
