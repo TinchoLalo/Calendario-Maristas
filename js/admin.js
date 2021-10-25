@@ -1326,7 +1326,7 @@ subirV.addEventListener('click', e=> {
     var yourl = document.getElementById('yourl').value;
     var video = 'https://www.youtube.com/embed/'+yourl;
     const youRef = firebase.firestore().collection(collection).doc("video|"+you2);
-    crearyou(you2, yourl);
+    crearyou(you2, video);
 
     
 });
