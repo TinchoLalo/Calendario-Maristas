@@ -109,7 +109,8 @@ function Calendar(mescal){
 
 
     // Obtener todas las imágenes de DESTACADOS
-    const destacadosRef = dt.collection(collection).doc('destacados');
+    var desyou = document.getElementById('fech').innerHTML;
+    const destacadosRef = dt.collection(collection).doc('destacados|'+desyou);
     var cantidad = 0;
     document.getElementById('destac').innerHTML = '';
 
@@ -1206,8 +1207,9 @@ subirA.addEventListener('click', e=> {
         console.log(error);
     }, 
     function completado(){
-        const desRef = firebase.firestore().collection(collection).doc("destacados");
-
+        var desyou2 = document.getElementById('fech').innerHTML;
+        const desRef = dt.collection(collection).doc('destacados|'+desyou2);
+        
         desRef
         .update({
             cantidad: canti,

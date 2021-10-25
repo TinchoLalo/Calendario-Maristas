@@ -75,7 +75,8 @@ function Calendar(mescal){
     diames.setTime(empezar); //diames=fecha primera celda.
     
     // Obtener todas las imágenes de DESTACADOS
-    const destacadosRef = dt.collection(collection).doc('destacados');
+    var desyou = document.getElementById('fech').innerHTML;
+    const destacadosRef = dt.collection(collection).doc('destacados|'+desyou);
     var cantidad;
     document.getElementById('destac').innerHTML = '';
 
