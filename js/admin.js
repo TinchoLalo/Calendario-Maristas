@@ -844,7 +844,18 @@ login.addEventListener('submit', (e) => {
       });
 });
 
+// ==== C E R R A R   S E C I Ó N ====
 
+function loginOut() {
+    auth.signOut().then(() => {
+      console.log("Seción Cerrada");
+      window.location.reload();
+    })
+  }
+
+
+
+  
 // BORRAR
 
 function Borrar(){
