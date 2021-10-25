@@ -103,7 +103,8 @@ function Calendar(mescal){
 
 
     // OBTENER EN ENLACE DEL VIDEO
-    var you = document.getElementById('fech').innerHTML
+    document.getElementById('youtube').src = '';
+    var you = document.getElementById('fech').innerHTML;
     const videoRef = dt.collection(collection).doc('video|'+you);
     videoRef.get().then((doc) => {
         if (!doc.exists) return;

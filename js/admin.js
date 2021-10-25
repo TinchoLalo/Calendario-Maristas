@@ -137,6 +137,7 @@ function Calendar(mescal){
     });
 
     // OBTENER EN ENLACE DEL VIDEO
+    document.getElementById('youtube').src = '';
     var you = document.getElementById('fech').innerHTML
     const videoRef = dt.collection(collection).doc('video|'+you);
     videoRef.get().then((doc) => {
