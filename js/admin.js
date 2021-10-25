@@ -888,7 +888,7 @@ function AceptarBorrar(){
     .collection(collection)
     .doc(idi)
     .delete()
-    .then(() => alert("Actividad borrado Correctamente")) // Documento borrado
+    .then(() => alert("Actividad borrada Correctamente")) // Documento borrado
     .catch((error) => alert("Error al Eliminar la Actividad", error));
 
     document.getElementById('borrar').style.display="none";
@@ -1216,7 +1216,7 @@ subirA.addEventListener('click', e=> {
             document.getElementById('cantStar').innerHTML = canti;
         })
         .catch((error) => {
-            alert("Error al Actulizar la Destacados", error);
+            alert("Error al Actulizar Destacados", error);
         });
         if (document.getElementById('uploaderA').value = 100) {
         document.getElementById('uploaderA').value = 0;
@@ -1234,7 +1234,7 @@ function GetIdStar(){
           e.preventDefault();
           const id = e.target.getAttribute("class");
           console.log(id);
-          document.getElementById('editarStar').style.display="block";
+          document.getElementById('reemStar').style.display="block";
           document.getElementById('nombreStar').innerHTML = id;
         });
     });
