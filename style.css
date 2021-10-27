@@ -1287,6 +1287,12 @@ td {
         left: 0;
         position: relative;
     }
+    .star {
+        width: 95%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .menu-movil {
         width: 80%;
         margin: auto;

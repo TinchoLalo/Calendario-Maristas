@@ -2252,6 +2252,7 @@ td {
         margin: auto;
         text-align: center;
     }
+    
     .informacion {
         display: none;
     }
@@ -2292,6 +2293,12 @@ td {
         width: 98%;
         margin-top: 0.4rem;
         padding: auto;
+    }
+    .star {
+        width: 95%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     #destacados img {
         width: 85%;
