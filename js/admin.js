@@ -897,11 +897,11 @@ create2.addEventListener('click', (e) => {
     auth
     .createUserWithEmailAndPassword(email2,password2)
     .then(userCredential => {
-        alert.log("Usuario Creado");
+        alert("Usuario Creado");
         document.getElementById('loginin').style.display="none";
     })
     .catch(error => {
-        alert.log(" ERROR al crear usuario");
+        alert(" ERROR al crear usuario");
     });
 });
 
