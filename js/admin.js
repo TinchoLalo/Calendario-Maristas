@@ -888,7 +888,7 @@ function loginIn(){
 
 const create2 = document.querySelector('#crearUser');
 
-create2.addEventListener('submit', (e) => {
+create2.addEventListener('click', (e) => {
     e.preventDefault();
     
     const password2= document.querySelector('.password2').value;
