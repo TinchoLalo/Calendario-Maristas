@@ -2243,8 +2243,8 @@ td {
         margin-right: auto;
         padding: auto;
         text-align: center;
-        float: right;
-        right: 0;
+        float: left;
+        left: 0;
         position: relative;
     }
     .menu-movil {
