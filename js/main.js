@@ -43,7 +43,8 @@ window.onload = function() {
     prsem=primeromes.getDay() //buscar día de la semana del día 1
     if (prsem==-1) {prsem=6;}
 
-    mescal = meshoy;
+    mescal = meshoy;    
+    
 
     Calendar(mescal);
 
@@ -59,7 +60,7 @@ function Calendar(mescal){
     var meses = 'mes|'+mescal+'|'+annohoy;
     mesa=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
     document.getElementById('fech').innerHTML = mesa[mescal]+'|'+annohoy;
-    console.log(meses);
+   
 
     mesactual=hoy.getMonth(); //mes actual
     primeromes=new Date(annohoy,mescal,"1") //buscar primer día del mes
@@ -75,6 +76,9 @@ function Calendar(mescal){
     diames.setTime(empezar); //diames=fecha primera celda.
     
     // Obtener todas las imágenes de DESTACADOS
+    
+    
+
     var desyou = document.getElementById('fech').innerHTML;
     const destacadosRef = dt.collection(collection).doc('destacados|'+desyou);
     var cantidad = 0;
@@ -88,20 +92,26 @@ function Calendar(mescal){
         console.log('Cantidad: '+cantidad);
         document.getElementById('cantStar').innerHTML = cantidad;
 
+       
+
+
+
+
         for (let i = 1; i <= cantidad; i++) {
+            var random=Math.floor(Math.random() * (4-1)+1);
             document.getElementById('destac').innerHTML += `
             <div class="star" id="${'star'+i}" >
-            <a href="" target="_blank"id="${'surl'+i}" >
-                <img src="" alt="" id="${'simg'+i}">
+            <a href="${'img/destacado'+random+'.jpg'}" target="_blank"id="${'surl'+i}" >
+                <img src="${'img/destacado'+random+'.jpg'}" alt="" id="${'simg'+i}">
             </a>
             </div>`;
+
+            
 
         }
         InsertStar();
         
-    }).catch(error => { 
-        console.log('Error al cargar noticias: ', error);
-    });
+    })
 
 
     // OBTENER EN ENLACE DEL VIDEO
@@ -240,23 +250,34 @@ function InsertStar(){
     for (let i = 1; i <= cantidad; i++) {
         const fech = document.getElementById('fech').innerHTML;
         console.log(fech);      
+        
+
         // DESCARGAR PDF
         storage.ref('Calendario Maristas/'+fech+'/star'+i).getDownloadURL().then(function(destacados) {
             console.log(destacados)
+            var random=Math.floor(Math.random() * (4-1)+1);
             //INSERTAR ARCHIVOS EN EL HTML
             document.getElementById('simg'+i).src = destacados;
             document.getElementById('surl'+i).href = destacados;
-            
-
+              
+            if ( document.getElementById('simg'+i).src == ''){
+                
+                document.getElementById('simg'+i).src = 'img/destacado'+random+'.jpg';
+            }
             // CONTAR DESTACADOS  
             CounterStar();
 
-        }).catch(function(error) {
-            console.log(error)
-            document.getElementById('destac').innerHTML = '<h4>No hay destacados</h4>';
-            document.getElementById('fl').style.display = 'none';
-            document.getElementById('fr').style.display = 'none';
-        });   
+        }).catch(function(error,i) {
+            const fech2 = document.getElementById('fech').innerHTML;
+            storage.ref('Calendario Maristas/'+fech2+'/star'+i).getDownloadURL().then(function(destacados) {                
+                //INSERTAR ARCHIVOS EN EL HTML
+                
+                document.getElementById('simg'+i).src = destacados;
+                document.getElementById('surl'+i).href = destacados;
+                i++;
+            });
+        });
+        
         
     }
 
@@ -269,7 +290,7 @@ function CounterStar(){
     var testDivs = Array.prototype.filter.call(testElements, function(testElement){
         for (let e = 0; e < testElements.length; e++) {
             star++;
-            console.log(star);
+        
 
             if (screen.width > 900){
                 if (star > 4){

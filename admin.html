@@ -25,6 +25,7 @@
                 <li><a href="#destacados">Destacados</a></li>
                 <li><a href="#noticias">Noticias</a></li>
                 <li><a href="#" onclick="VerTuto()">Tutorial</a></li>
+                <li><a href="#"onclick="loginIn()">Crear Usuario</a></li</li>
                 <li><a href="#"onclick="loginOut()">Salir</a></li>
             
             </ul>
@@ -45,6 +46,7 @@
                 <li><a href="#destacados" onclick="CerrarMenu()">Destacados</a></li>
                 <li><a href="#noticias" onclick="CerrarMenu()">Noticias</a></li>
                 <li><a href="#"onclick="loginOut()">Tutorial</a></li>
+                <li><a href="#"onclick="loginIn()">Crear Usuario</a></li</li>
                 <li><a href="#"onclick="loginOut()">Salir</a></li>
             
             </ul>
@@ -73,6 +75,30 @@
             <iframe   src="https://www.youtube.com/embed/2t5rKOp_alM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             
         </form>
+    </div>
+    <div id="loginin" style="display: none;">
+       
+        <div id="tutorial">
+            
+            <h3 onclick="CerrarLoginIn()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+            <br><br>
+            <h4>Crear Usuario</h4>
+            
+            <input type="text" id="email" class="email2" placeholder="Email" >
+            <input type="password" name="password" class="password2" id="password" placeholder="Contraseña">
+            <form id="crearUser">
+                <h5> 
+                    
+                    Crear
+                    
+                </h5>
+            </form>
+        
+                
+           
+            
+            
+        </div>
     </div>
 
 
@@ -394,8 +420,8 @@
                         <h3>Editar Archivo</h3>
                         <div class="cont-subir" style="display: inline-block; ">
                           
-                          <button onclick="ReemplazarStar()" id="subirID" class="subirBoton" style=" margin: 2rem;width: auto;"> Reemplazar</button>
-                          <button onclick="BorrarStar()" id="subirID" class="subirBoton" style=" margin: 2rem; width: auto;"> Borrar</button>
+                          <button  id="ReemplazarStar" class="subirBoton" style=" margin: 2rem;width: auto;"> Reemplazar</button>
+                          <button  id="BorrarStar" class="subirBoton" style=" margin: 2rem; width: auto;"> Borrar</button>
                           
                         </div>
                         <br>

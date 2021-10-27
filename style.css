@@ -308,6 +308,15 @@ body::-webkit-scrollbar-thumb:hover {
     bottom: 0;
     text-align: center;
 }
+ul .nav-movil{
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
 ul .nav {
     width: 100%;
     margin: auto;
@@ -1264,6 +1273,90 @@ td {
         margin-left: auto;
         margin-right: auto;
     }
+    .burger .line-menu {
+        width: 2.5rem;
+        
+    }
+    .burger {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+        padding: auto;
+        text-align: center;
+        float: right;
+        right: 0;
+        position: relative;
+    }
+    .menu-movil {
+        width: 80%;
+        margin: auto;
+        text-align: center;
+    }
+    .informacion {
+        display: none;
+    }
+    .informacion .infor1 {
+        margin: auto;
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 1rem;
+        display: inline-block;
+    }
+    h2 {
+        font-size: 2.1rem;
+    }
+    #noti {
+        border-radius: none;
+    }
+    .noti {
+        border-radius: none;
+    }
+    ul .nav-movil{
+        height: 10rem;
+        margin: auto;
+        padding: auto;
+        width: 90%;
+        text-align: center;
+    }
+    #video .marco {
+        height: 15rem;
+        margin: auto;
+        padding: auto;
+        width: 95%;
+    }
+    #video {
+        width: 95%;
+    }
+    #video iframe {
+        height: 14rem;
+        width: 98%;
+        margin-top: 0.4rem;
+        padding: auto;
+    }
+    #destacados img {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #fl h3 {
+        font-size: .6rem;
+        margin: 1rem;
+    }
+    #fr h3 {
+        font-size: .6rem;
+        margin: 1rem;
+        
+    }
+    .infor1 h5 {
+        font-size: 1rem;
+    }
+    .inicio #titleAno {
+        font-size: 4rem;
+        padding: auto;
+        margin: auto;
+        text-align: center;
+    }
+
     .inicio {
         width: 100%;
         height: auto;

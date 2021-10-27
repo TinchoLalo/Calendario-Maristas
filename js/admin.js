@@ -123,16 +123,17 @@ function Calendar(mescal){
         document.getElementById('cantStar').innerHTML = cantidad;
 
         for (let i = 1; i <= cantidad; i++) {
+            var random=Math.floor(Math.random() * (4-1)+1);
             document.getElementById('destac').innerHTML += `
             <div id="startid" onclick="GetIdStar();" style="display: inline-block">
                 <div class="star" id="${'star'+i}" >
             
-                    <img src="" alt="" id="${'simg'+i}"class="${'star'+i}" >
+                    <img src="${'img/destacado'+random+'.jpg'}" alt="" id="${'simg'+i}"class="${'star'+i}" >
                 </div>
             </div>`;
 
         }
-        InsertStar(cantidad);
+        InsertStar();
         
     }).catch(error => { 
         console.log('Error al cargar Destacados: ', error);
@@ -576,22 +577,34 @@ function InsertStar(){
     for (let i = 1; i <= cantidad; i++) {
         const fech = document.getElementById('fech').innerHTML;
         console.log(fech);      
+        
+
         // DESCARGAR PDF
         storage.ref('Calendario Maristas/'+fech+'/star'+i).getDownloadURL().then(function(destacados) {
             console.log(destacados)
+            var random=Math.floor(Math.random() * (4-1)+1);
             //INSERTAR ARCHIVOS EN EL HTML
             document.getElementById('simg'+i).src = destacados;
-            
-
+            document.getElementById('surl'+i).href = destacados;
+              
+            if ( document.getElementById('simg'+i).src == ''){
+                
+                document.getElementById('simg'+i).src = 'img/destacado'+random+'.jpg';
+            }
             // CONTAR DESTACADOS  
             CounterStar();
 
-        }).catch(function(error) {
-            console.log(error)
-            document.getElementById('destac').innerHTML = '<h4>No hay destacados</h4>';
-            document.getElementById('fl').style.display = 'none';
-            document.getElementById('fr').style.display = 'none';
-        });   
+        }).catch(function(error,i) {
+            const fech2 = document.getElementById('fech').innerHTML;
+            storage.ref('Calendario Maristas/'+fech2+'/star'+i).getDownloadURL().then(function(destacados) {                
+                //INSERTAR ARCHIVOS EN EL HTML
+                
+                document.getElementById('simg'+i).src = destacados;
+                document.getElementById('surl'+i).href = destacados;
+                i++;
+            });
+        });
+        
         
     }
 
@@ -866,6 +879,31 @@ function loginOut() {
   }
 
 
+
+// ====  C R E A R    U S U A R I O  ====
+
+function loginIn(){
+    document.getElementById('loginin').style.display="block";
+}
+
+const create2 = document.querySelector('#crearUser');
+
+create2.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const password2= document.querySelector('.password2').value;
+    const email2= document.querySelector('.email2').value;
+
+    auth
+    .createUserWithEmailAndPassword(email2,password2)
+    .then(userCredential => {
+        alert.log("Usuario Creado");
+        document.getElementById('loginin').style.display="none";
+    })
+    .catch(error => {
+        alert.log(" ERROR al crear usuario");
+    });
+});
 
 
 // BORRAR
@@ -1230,7 +1268,7 @@ function GetIdStar(){
           e.preventDefault();
           const id = e.target.getAttribute("class");
           console.log(id);
-          document.getElementById('reemStar').style.display="block";
+          document.getElementById('editarStar').style.display="block";
           document.getElementById('nombreStar').innerHTML = id;
         });
     });
@@ -1241,10 +1279,13 @@ function GetIdStar(){
 
 // REEMPLAZAR DESTACADOS
 
-function ReemplazarStar(){
+const reemplazarStar = document.getElementById('ReemplazarStar');
+
+reemplazarStar.addEventListener('click', e=> {
+    e.preventDefault();
     document.getElementById('reemStar').style.display="block";
     document.getElementById('editarStar').style.display="none";
-}
+});
 
 
 
@@ -1283,10 +1324,14 @@ subirB.addEventListener('click', e=> {
 
 // BORRAR DESTACADOS
 
-function BorrarStar(){
+const borrarStar = document.getElementById('BorrarStar');
+
+borrarStar.addEventListener('click', e=> {
+    e.preventDefault();
     document.getElementById('borrarStar').style.display="block";
     document.getElementById('editarStar').style.display="none";
-}
+});
+
 
 const subirC = document.getElementById('crearC');
 
@@ -1302,19 +1347,6 @@ subirC.addEventListener('click', e=> {
     desertRef.delete().then(function() {
     // File deleted successfully
     }).then(() => {
-        var can = document.getElementById('cantStar').innerHTML;
-        can = Number(can)-1;
-        const delRef = firebase.firestore().collection(collection).doc("destacados");
-
-        delRef
-        .update({
-            cantidad: can,
-        }).then(() => {
-            document.getElementById('cantStar').innerHTML = can;
-        }).catch((error) => {
-            alert("Error al Actulizar la Destacados", error);
-        });
-
         alert('Archivo Borrado Correctamente');
 
     }).catch(function(error) {
