@@ -1344,14 +1344,34 @@ td {
         margin-left: auto;
         margin-right: auto;
     }
-    #fl h3 {
-        font-size: .6rem;
-        margin: 1rem;
+    
+    #destacados .flech h3 i{
+        font-size: 1.5rem;
+        margin: 0.5rem;
+        position: relative;
+        margin: auto;
+        cursor: pointer;
+        color: rgb(67, 67, 67);
+        animation-duration: 7s;
+        animation-name: flechas;
+        animation-iteration-count: infinite;
+        animation-timing-function:ease;
+        transition: all 0.5s;
+        transition-delay: 1s;
+    
     }
-    #fr h3 {
-        font-size: .6rem;
-        margin: 1rem;
-        
+    #destacados .flech h3 i:hover{
+        color: rgb(97, 184, 171);
+        animation: none;
+        transition: all 0.5s;
+        transition-delay: 1s;
+    }
+    #destacados .flech {
+        position: relative;
+        z-index: 11;
+        margin-top: -12rem;
+        cursor: pointer;
+    
     }
     .infor1 h5 {
         font-size: 1rem;
