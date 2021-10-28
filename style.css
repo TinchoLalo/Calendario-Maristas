@@ -247,11 +247,11 @@ body::-webkit-scrollbar-thumb:hover {
     text-align: left;
     float: left;
 }
-#pre a {
+#pre a h4{
     float: left;
     margin-left: 1rem;
     font-size: 2rem;
-    margin-top: 2rem;
+    margin-top: 0rem;
     cursor: pointer;
     text-decoration: none;
     color: #ffffff;
@@ -259,7 +259,7 @@ body::-webkit-scrollbar-thumb:hover {
     transition-delay: 0s;
     
 }
-#pre a:hover {
+#pre a h4:hover {
     letter-spacing: .1rem;
     transition: all 0.5s;
     transition-delay: 0s;
@@ -652,6 +652,9 @@ header {
     margin-top: -0.3rem;
     color: #009C90;
     font-size: 2rem;
+}
+.inicio #diaA {
+    font-size: 2.5rem;
 }
 .title h1 {
     font-family: fredoka one, Arial, Helvetica, sans-serif;
@@ -1518,18 +1521,14 @@ td {
         text-align: left;
         width: 95%;
     }
-    #activi a i{
-        font-size: 1.5rem;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: left;
-    }
+    
     #activi a {
         font-size: 1.5rem;
-        margin-left: 0.5rem;
+        margin-left: 1.5rem;
+        padding-left: 3rem;
         margin-right: auto;
-        text-align: left;
-        width: 95%;
+        text-align: right;
+        width: 85%;
     }
     #pre #veract {
         margin: auto;

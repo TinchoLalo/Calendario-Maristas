@@ -172,9 +172,17 @@ function Calendar(mescal){
             mimes=diames.getMonth()
             mianno=diames.getFullYear()
             celda=fila.querySelectorAll('.t')[j];
-            celda.id = midia+'|'+mimes+'|'+mianno;
-            const ide = midia+'|'+mimes+'|'+mianno;
+            mesas=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+            mesname = mesas[mescal];
+            const ide = midia+' de '+mesname+' de '+mianno;
+            celda.id = ide;
+            if (mimes==mescal) {
+                celda.id = ide;
+            }
+            else{
+                celda.id == '';
 
+            }
             
             celda.innerHTML=midia;
             //Recuperar estado inicial al cambiar de mes:
@@ -253,26 +261,43 @@ function Calendar(mescal){
 
 }
 
+
 // Verificar si hay actividades en cada fecha del mes
 function Verificar(ide,celda){
-    
-    const libroRef = firebase
-    .firestore()
-    .collection(collection)
-    .doc(ide);
+    celda.id = '';
+    if (mimes == meshoy){
+        const libroRef = firebase
+        .firestore()
+        .collection(collection)
+        .doc(ide);
 
-    libroRef.get().then((doc) => {
-        if (!doc.exists) return;
-        const datos = doc.data();
-        console.log("Document data:", datos.actividad);
-
-        if ( datos.actividad != ''){
-            celda.innerHTML += `<div class="circle" id="${ide}"></div>`;
-            celda.style.color="#1d87ae";
-
+        libroRef.get().then((doc) => {
+            if (!doc.exists) return;
+            const datos = doc.data();
             
-        }        
-  });
+
+            if ( datos.actividad != '' ){
+                
+                celda.innerHTML += `<div class="circle" id="${ide}"></div>`;
+                celda.style.color="#1d87ae";
+                celda.id = ide;
+                celda.addEventListener("click", e => {
+                    e.preventDefault();
+                    
+                    const id = e.target.getAttribute("id");
+                    document.getElementById('pre').style.display='block';
+                    document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
+                    cargarActividades(id);
+            
+                });
+            
+                
+            }     
+            
+        });
+    }
+    
+    
                 
 }  
 
@@ -452,16 +477,23 @@ function Sumar(){
 
 // Caragar las actividades del día
 
-
 const fech = document.querySelectorAll(".t").forEach(el => {
     el.addEventListener("click", e => {
       e.preventDefault();
-      const id = e.target.getAttribute("id");
-      document.getElementById('pre').style.display='block';
-      document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
-      document.getElementById('idi').innerHTML = id;
+      console.log('mimes: '+mimes)
+      console.log('mescal: '+mescal)
+      if (mimes == mescal){
+        const id = e.target.getAttribute("id");
+        document.getElementById('pre').style.display='block';
+        document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
+        cargarActividades(id);
+      }
+      else{
+        document.getElementById('diaA').innerHTML= '';
+      }
+      
 
-      cargarActividades(id);
+      
     });
 
 });
@@ -494,25 +526,52 @@ function cargarActividades(id){
             console.log("contador: "+contador);
             testElement.id = 'actividad'+contador;
 
-            if (contador >= 2){
+            if (contador == 2){
                 siguiente.style.display="inline-block";
                 anterior.style.display="inline-block";
                 siguiente.style.opacity=1;
                 document.getElementById('actividad2').style.display="none";
                 document.getElementById('max').innerHTML = 2;
             }
-            if (contador >= 3){ 
+            if (contador == 3){ 
+                siguiente.style.display="inline-block";
+                anterior.style.display="inline-block";
                 document.getElementById('actividad2').style.display="none";
                 document.getElementById('actividad3').style.display="none";
                 document.getElementById('max').innerHTML = 3;
                 
             }
+            if (contador == 4){ 
+                siguiente.style.display="inline-block";
+                anterior.style.display="inline-block";
+                document.getElementById('actividad2').style.display="none";
+                document.getElementById('actividad3').style.display="none";
+                document.getElementById('actividad4').style.display="none";
+                document.getElementById('max').innerHTML = 4;
+                
+            }
+            if (contador == 5){ 
+                siguiente.style.display="inline-block";
+                anterior.style.display="inline-block";
+                document.getElementById('actividad2').style.display="none";
+                document.getElementById('actividad3').style.display="none";
+                document.getElementById('actividad4').style.display="none";
+                document.getElementById('actividad5').style.display="none";
+                document.getElementById('max').innerHTML = 5;
+                
+            }
+            
             if (contador == 1){
                 siguiente.style.display="none";
                 document.getElementById('max').innerHTML = 1;
             }
                 
-            
+            // Insertar cada elemento de la actividad en el editable
+
+            document.getElementById('titl'+contador).value =document.getElementById('at'+contador).innerHTML;
+            document.getElementById('des'+contador).value = document.getElementById('ad'+contador).innerHTML;
+            document.getElementById('url'+contador).value= document.getElementById('ae'+contador).href;
+            document.getElementById('link'+contador).value = document.getElementById('al'+contador).innerHTML;
             
             return testElement.nodeName === 'DIV';
             
@@ -581,7 +640,6 @@ function InsertStar(){
 
         // DESCARGAR PDF
         storage.ref('Calendario Maristas/'+fech+'/star'+i).getDownloadURL().then(function(destacados) {
-            console.log(destacados)
             var random=Math.floor(Math.random() * (4-1)+1);
             //INSERTAR ARCHIVOS EN EL HTML
             document.getElementById('simg'+i).src = destacados;
@@ -617,7 +675,6 @@ function CounterStar(){
     var testDivs = Array.prototype.filter.call(testElements, function(testElement){
         for (let e = 0; e < testElements.length; e++) {
             star++;
-            console.log(star);
 
             if (screen.width > 900){
                 if (star > 4){
@@ -636,7 +693,7 @@ function CounterStar(){
 
 }
 
-function VerActividad(){
+function VerActividad(num){
     var siguiente = document.getElementById('vermas');
     var anterior = document.getElementById('vermenos');
     anterior.style.opacity=1;
@@ -645,24 +702,44 @@ function VerActividad(){
             document.getElementById('actividad1').style.display="inline-block";
             document.getElementById('actividad2').style.display="none";
             document.getElementById('actividad3').style.display="none";
+            document.getElementById('actividad4').style.display="none";
+            document.getElementById('actividad5').style.display="none";
             siguiente.style.opacity=1;
-            anterior.style.opacity=1;
+            anterior.style.opacity=0;
             break;
         case 2:
-            document.getElementById('actividad2').style.display="inline-block";
             document.getElementById('actividad1').style.display="none";
+            document.getElementById('actividad2').style.display="inline-block";
             document.getElementById('actividad3').style.display="none";
+            document.getElementById('actividad4').style.display="none";
+            document.getElementById('actividad5').style.display="none";
             anterior.style.opacity=1;
             siguiente.style.opacity=1;
             break;
         case 3:
-            document.getElementById('actividad3').style.display="inline-block";
-            document.getElementById('actividad2').style.display="none";
             document.getElementById('actividad1').style.display="none";
+            document.getElementById('actividad2').style.display="none";
+            document.getElementById('actividad3').style.display="inline-block";
+            document.getElementById('actividad4').style.display="none";
+            document.getElementById('actividad5').style.display="none";
+            break;
+        case 4:
+            document.getElementById('actividad1').style.display="none";
+            document.getElementById('actividad2').style.display="none";
+            document.getElementById('actividad3').style.display="none";
+            document.getElementById('actividad4').style.display="inline-block";
+            document.getElementById('actividad5').style.display="none";
+       
+            break;
+        case 5:
+            document.getElementById('actividad1').style.display="none";
+            document.getElementById('actividad2').style.display="none";
+            document.getElementById('actividad3').style.display="none";
+            document.getElementById('actividad4').style.display="none";
+            document.getElementById('actividad5').style.display="inline-block";
             siguiente.style.opacity=0;
             anterior.style.opacity=1;
             break;
-        
     
         default:
             break;
@@ -906,8 +983,8 @@ create2.addEventListener('click', (e) => {
 });
 
 
-// BORRAR
-
+// =======  BORRAR   ==========
+  
 function Borrar(){
 document.getElementById('borrar').style.display="block";
 
@@ -934,7 +1011,7 @@ function AceptarBorrar(){
     document.getElementById('borrar').style.display="none";
 }
 
-// EDITAR 
+// =======  EDITAR ACTIVIDAD  =================
 
 function Editar(){
     const idi=document.getElementById('idi').innerHTML;
@@ -949,29 +1026,55 @@ function Cerrar2(){
 }
 
 var agregar = 1;
-function Agregar(){
-    if(agregar <3){
+const agregarEditar2 = document.getElementById('agregarEditar2');
+
+agregarEditar2.addEventListener('click', e=> {
+    e.preventDefault();
+    if(agregar <5){
         agregar = agregar +1;
-    }
-    
-    if (agregar == 2){
-        document.getElementById('act1').style.display="none";
-        document.getElementById('act2').style.display="block";
-        document.getElementById('act3').style.display="none";
-    }
-    if (agregar == 3){
-        document.getElementById('act1').style.display="none";
-        document.getElementById('act3').style.display="block";
-        document.getElementById('act2').style.display="none";
     }
     if (agregar == 1){
         document.getElementById('act2').style.display="none";
         document.getElementById('act1').style.display="block";
         document.getElementById('act3').style.display="none";
+        document.getElementById('act4').style.display="none";
+        document.getElementById('act5').style.display="none";
+    }
+    if (agregar == 2){
+        document.getElementById('act1').style.display="none";
+        document.getElementById('act2').style.display="block";
+        document.getElementById('act3').style.display="none";
+        document.getElementById('act4').style.display="none";
+        document.getElementById('act5').style.display="none";
+    }
+    if (agregar == 3){
+        document.getElementById('act1').style.display="none";
+        document.getElementById('act3').style.display="block";
+        document.getElementById('act2').style.display="none";
+        document.getElementById('act4').style.display="none";
+        document.getElementById('act5').style.display="none";
+    }
+    if (agregar == 4){
+        document.getElementById('act1').style.display="none";
+        document.getElementById('act4').style.display="block";
+        document.getElementById('act2').style.display="none";
+        document.getElementById('act3').style.display="none";
+        document.getElementById('act5').style.display="none";
+    }
+    if (agregar == 5){
+        document.getElementById('act1').style.display="none";
+        document.getElementById('act5').style.display="block";
+        document.getElementById('act2').style.display="none";
+        document.getElementById('act3').style.display="none";
+        document.getElementById('act4').style.display="none";
     }
     
-}
-function Quitar(){
+});
+const quitarEditar2 = document.getElementById('quitarEditar2');
+
+quitarEditar2.addEventListener('click', e=> {
+    e.preventDefault();
+
     if(agregar >1){
         agregar = agregar -1;
     }
@@ -979,19 +1082,39 @@ function Quitar(){
         document.getElementById('act2').style.display="none";
         document.getElementById('act1').style.display="block";
         document.getElementById('act3').style.display="none";
+        document.getElementById('act4').style.display="none";
+        document.getElementById('act5').style.display="none";
     }
     if (agregar == 2){
         document.getElementById('act1').style.display="none";
         document.getElementById('act2').style.display="block";
         document.getElementById('act3').style.display="none";
+        document.getElementById('act4').style.display="none";
+        document.getElementById('act5').style.display="none";
     }
     if (agregar == 3){
         document.getElementById('act1').style.display="none";
         document.getElementById('act3').style.display="block";
         document.getElementById('act2').style.display="none";
+        document.getElementById('act4').style.display="none";
+        document.getElementById('act5').style.display="none";
+    }
+    if (agregar == 4){
+        document.getElementById('act1').style.display="none";
+        document.getElementById('act4').style.display="block";
+        document.getElementById('act2').style.display="none";
+        document.getElementById('act3').style.display="none";
+        document.getElementById('act5').style.display="none";
+    }
+    if (agregar == 5){
+        document.getElementById('act1').style.display="none";
+        document.getElementById('act5').style.display="block";
+        document.getElementById('act2').style.display="none";
+        document.getElementById('act3').style.display="none";
+        document.getElementById('act4').style.display="none";
     }
     
-}
+});
 
 function Guardar(){
 
@@ -1011,27 +1134,50 @@ function Guardar(){
     const des3 =document.getElementById('des3').value;
     const url3 =document.getElementById('url3').value;
     const link3 =document.getElementById('link3').value;
+
+    const titl4 =document.getElementById('titl4').value;
+    const des4 =document.getElementById('des4').value;
+    const url4 =document.getElementById('url4').value;
+    const link4 =document.getElementById('link4').value;
+
+    const titl5 =document.getElementById('titl5').value;
+    const des5 =document.getElementById('des5').value;
+    const url5 =document.getElementById('url5').value;
+    const link5 =document.getElementById('link5').value;
+    
     
     var actualizar = '';
 
     
     // Insertar el html a guardar (ej: traspasar el input a h2)
     const act1 = 
-    `<div class="actividad" ><h5>${titl1}</h5>                            
-     <p> ${des1}</p>                             
-     <a href="${url1}" target="_blank" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;"></i>${link1}</a> </div> `
+    `<div class="actividad" ><h5 id="at1">${titl1}</h5>                            
+     <p id="ad1"> ${des1}</p>                             
+     <a href="${url1}" target="_blank" rel="" id="ae1"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al1">${link1}</h4></a> </div> `
     ;
 
     const act2 = 
-    `<div class="actividad" ><h5>${titl2}</h5>                            
-     <p> ${des2}</p>                             
-     <a href="${url2}" target="_blank" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;"></i>${link2}</a> </div> `
+    `<div class="actividad" ><h5 id="at2">${titl2}</h5>                            
+     <p id="ad2"> ${des2}</p>                             
+     <a href="${url2}" target="_blank" rel="" id="ae2"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al2">${link2}</h4></a> </div> `
     ;
 
     const act3 =
-    `<div class="actividad" ><h5>${titl3}</h5>                            
-     <p> ${des3}</p>                             
-     <a href="${url3}" target="_blank" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;"></i>${link3}</a> </div> `
+    `<div class="actividad" ><h5 id="at3">${titl3}</h5>                            
+     <p id="ad3"> ${des3}</p>                             
+     <a href="${url3}" target="_blank" rel="" id="ae3"><i class="fa fa-arrow-right" style="color: #ffffff;"></i><h4 id="al3">${link2}</h4></a> </div> `
+    4
+
+    const act4 =
+    `<div class="actividad" ><h5 id="at4">${titl4}</h5>                            
+     <p id="ad4"> ${des4}</p>                             
+     <a href="${url4}" target="_blank" rel="" id="ae4"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al4">${link4}</h4></a> </div> `
+    ;
+
+    const act5 =
+    `<div class="actividad" ><h5 id="at5">${titl5}</h5>                            
+     <p id="ad5"> ${des5}</p>                             
+     <a href="${url5}" target="_blank" rel="" id="ae5"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al5">${link5}</h4></a> </div> `
     ;
 
     if (agregar == 1){
@@ -1042,6 +1188,12 @@ function Guardar(){
     }
     if (agregar == 3){
         actualizar = act1+act2+act3;
+    }
+    if (agregar == 4){
+        actualizar = act1+act2+act3+act4;
+    }
+    if (agregar == 5){
+        actualizar = act1+act2+act3+act4+act5;
     }
 
     // ACTUALIZAR COLECCION
@@ -1077,29 +1229,57 @@ function Cerrar3(){
 }
 
 var eagregar = 1;
-function Agregar2(){
-    if(eagregar <3){
+const agregarEditar = document.getElementById('agregarEditar');
+
+agregarEditar.addEventListener('click', e=> {
+    e.preventDefault();
+    if(eagregar <5){
         eagregar = eagregar +1;
     }
     
+    if (eagregar == 1){
+        document.getElementById('eact2').style.display="none";
+        document.getElementById('eact1').style.display="block";
+        document.getElementById('eact3').style.display="none";
+        document.getElementById('eact4').style.display="none";
+        document.getElementById('eact5').style.display="none";
+    }
     if (eagregar == 2){
         document.getElementById('eact1').style.display="none";
         document.getElementById('eact2').style.display="block";
         document.getElementById('eact3').style.display="none";
+        document.getElementById('eact4').style.display="none";
+        document.getElementById('eact5').style.display="none";
+        
     }
     if (eagregar == 3){
         document.getElementById('eact1').style.display="none";
         document.getElementById('eact3').style.display="block";
         document.getElementById('eact2').style.display="none";
+        document.getElementById('eact4').style.display="none";
+        document.getElementById('eact5').style.display="none";
     }
-    if (eagregar == 1){
+    if (eagregar == 4){
+        document.getElementById('eact1').style.display="none";
+        document.getElementById('eact4').style.display="block";
         document.getElementById('eact2').style.display="none";
-        document.getElementById('eact1').style.display="block";
+        document.getElementById('eact3').style.display="none";
+        document.getElementById('eact5').style.display="none";
+    }
+    if (eagregar == 5){
+        document.getElementById('eact1').style.display="none";
+        document.getElementById('eact5').style.display="block";
+        document.getElementById('eact2').style.display="none";
+        document.getElementById('eact4').style.display="none";
         document.getElementById('eact3').style.display="none";
     }
     
-}
-function Quitar2(){
+});
+
+const quitarEditar = document.getElementById('quitarEditar');
+
+quitarEditar.addEventListener('click', e=> {
+    e.preventDefault();
     if(eagregar >1){
         eagregar = eagregar -1;
     }
@@ -1107,19 +1287,40 @@ function Quitar2(){
         document.getElementById('eact2').style.display="none";
         document.getElementById('eact1').style.display="block";
         document.getElementById('eact3').style.display="none";
+        document.getElementById('eact4').style.display="none";
+        document.getElementById('eact5').style.display="none";
     }
     if (eagregar == 2){
         document.getElementById('eact1').style.display="none";
         document.getElementById('eact2').style.display="block";
         document.getElementById('eact3').style.display="none";
+        document.getElementById('eact4').style.display="none";
+        document.getElementById('eact5').style.display="none";
+        
     }
     if (eagregar == 3){
         document.getElementById('eact1').style.display="none";
         document.getElementById('eact3').style.display="block";
         document.getElementById('eact2').style.display="none";
+        document.getElementById('eact4').style.display="none";
+        document.getElementById('eact5').style.display="none";
+    }
+    if (eagregar == 4){
+        document.getElementById('eact1').style.display="none";
+        document.getElementById('eact4').style.display="block";
+        document.getElementById('eact2').style.display="none";
+        document.getElementById('eact3').style.display="none";
+        document.getElementById('eact5').style.display="none";
+    }
+    if (eagregar == 5){
+        document.getElementById('eact1').style.display="none";
+        document.getElementById('eact5').style.display="block";
+        document.getElementById('eact2').style.display="none";
+        document.getElementById('eact4').style.display="none";
+        document.getElementById('eact3').style.display="none";
     }
     
-}
+});
 
 function Crear(){
 
@@ -1139,28 +1340,57 @@ function Crear(){
     const edes3 =document.getElementById('edes3').value;
     const eurl3 =document.getElementById('eurl3').value;
     const elink3 =document.getElementById('elink3').value;
+
+    const etitl4 =document.getElementById('etitl4').value;
+    const edes4 =document.getElementById('edes4').value;
+    const eurl4 =document.getElementById('eurl4').value;
+    const elink4 =document.getElementById('elink4').value;
+
+    const etitl5 =document.getElementById('etitl5').value;
+    const edes5=document.getElementById('edes5').value;
+    const eurl5 =document.getElementById('eurl5').value;
+    const elink5 =document.getElementById('elink5').value;
+    
     
     var crear = '';
 
     
     // Insertar el html a guardar (ej: traspasar el input a h2)
-    const eact1 = 
-    `<div class="actividad" ><h5>${etitl1}</h5>                            
-     <p> ${edes1}</p>                             
-     <a href="${eurl1}" target="_blank" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;"></i>${elink1}</a> </div> `
+
+    const eact1 =
+    `<div class="actividad" ><h5 id="at1">${etitl1}</h5>                            
+     <p id="ad1"> ${edes1}</p>                             
+     <a href="${eurl1}" target="_blank" id="ae1" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al1">${elink1}</h4></a> </div> `
     ;
 
-    const eact2 = 
-    `<div class="actividad" ><h5>${etitl2}</h5>                            
-     <p> ${edes2}</p>                             
-     <a href="${eurl2}" target="_blank" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;"></i>${elink2}</a> </div> `
+    const eact2 =
+    `<div class="actividad" ><h5 id="at2">${etitl2}</h5>                            
+     <p id="ad2"> ${edes2}</p>                             
+     <a href="${eurl2}" target="_blank" rel="" id="ae2"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al2">${elink2}</h4></a> </div> `
     ;
 
     const eact3 =
-    `<div class="actividad" ><h5>${etitl3}</h5>                            
-     <p> ${edes3}</p>                             
-     <a href="${eurl3}" target="_blank" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;"></i>${elink3}</a> </div> `
+    `<div class="actividad" ><h5 id="at3">${etitl3}</h5>                            
+     <p id="ad3"> ${edes3}</p>                             
+     <a href="${eurl3}" target="_blank" id="ae3" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al3">${elink3}</h4></a> </div> `
     ;
+
+    const eact4 =
+    `<div class="actividad" ><h5 id="at4">${etitl4}</h5>                            
+     <p id="ad4"> ${edes4}</p>                             
+     <a href="${eurl4}" target="_blank" id="ae4" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al4">${elink4}</h4></a> </div> `
+    ;
+
+    const eact5 =
+    `<div class="actividad" ><h5 id="at5">${etitl5}</h5>                            
+     <p id="ad5"> ${edes5}</p>                             
+     <a href="${eurl5}" target="_blank" id="ae5" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al5">${elink5}</h4></a> </div> `
+    ;
+
+
+
+
+
 
     if (eagregar == 1){
         crear = eact1;
@@ -1170,6 +1400,12 @@ function Crear(){
     }
     if (eagregar == 3){
         crear = eact1+eact2+eact3;
+    }
+    if (eagregar == 4){
+        crear = eact1+eact2+eact3+eact4;
+    }
+    if (eagregar == 5){
+        crear = eact1+eact2+eact3+eact4+eact5;
     }
     console.log(crear)
     console.log(idi)

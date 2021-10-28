@@ -43,7 +43,7 @@ window.onload = function() {
     prsem=primeromes.getDay() //buscar día de la semana del día 1
     if (prsem==-1) {prsem=6;}
 
-    mescal = meshoy;    
+    mescal = meshoy; 
     
 
     Calendar(mescal);
@@ -147,8 +147,17 @@ function Calendar(mescal){
             mimes=diames.getMonth()
             mianno=diames.getFullYear()
             celda=fila.querySelectorAll('.t')[j];
-            celda.id = midia+'|'+mimes+'|'+mianno;
-            const ide = midia+'|'+mimes+'|'+mianno;
+            mesas=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+            mesname = mesas[mescal];
+            const ide = midia+' de '+mesname+' de '+mianno;
+            if (mimes==mescal) {
+                celda.id = ide;
+            }
+            else{
+                celda.id == '';
+
+            }
+            
             
 
             
@@ -172,6 +181,7 @@ function Calendar(mescal){
                celda.style.color="#ffffff";
                celda.innerHTML=`<cite title='Fecha Actual' id="${ide}">${midia}</cite>`;
             }
+            
             //pasar al siguiente día
             midia=midia+1;
             diames.setDate(midia);
@@ -311,24 +321,40 @@ function CounterStar(){
 
 // Verificar si hay actividades en cada fecha del mes
 function Verificar(ide,celda){
-    
-    const libroRef = firebase
-    .firestore()
-    .collection(collection)
-    .doc(ide);
+    celda.id = '';
+    if (mimes == meshoy){
+        const libroRef = firebase
+        .firestore()
+        .collection(collection)
+        .doc(ide);
 
-    libroRef.get().then((doc) => {
-        if (!doc.exists) return;
-        const datos = doc.data();
-        
-
-        if ( datos.actividad != ''){
-            celda.innerHTML += `<div class="circle" id="${ide}"></div>`;
-            celda.style.color="#1d87ae";
-
+        libroRef.get().then((doc) => {
+            if (!doc.exists) return;
+            const datos = doc.data();
             
-        }        
-  });
+
+            if ( datos.actividad != '' ){
+                
+                celda.innerHTML += `<div class="circle" id="${ide}"></div>`;
+                celda.style.color="#1d87ae";
+                celda.id = ide;
+                celda.addEventListener("click", e => {
+                    e.preventDefault();
+                    
+                    const id = e.target.getAttribute("id");
+                    document.getElementById('pre').style.display='block';
+                    document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
+                    cargarActividades(id);
+            
+                });
+            
+                
+            }     
+            
+        });
+    }
+    
+    
                 
 }  
 
@@ -512,11 +538,20 @@ function Sumar(){
 const fech = document.querySelectorAll(".t").forEach(el => {
     el.addEventListener("click", e => {
       e.preventDefault();
-      const id = e.target.getAttribute("id");
-      document.getElementById('pre').style.display='block';
-      document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
+      console.log('mimes: '+mimes)
+      console.log('mescal: '+mescal)
+      if (mimes == mescal){
+        const id = e.target.getAttribute("id");
+        document.getElementById('pre').style.display='block';
+        document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
+        cargarActividades(id);
+      }
+      else{
+        document.getElementById('diaA').innerHTML= '';
+      }
+      
 
-      cargarActividades(id);
+      
     });
 
 });
@@ -549,19 +584,41 @@ function cargarActividades(id){
             console.log("contador: "+contador);
             testElement.id = 'actividad'+contador;
 
-            if (contador >= 2){
+            if (contador == 2){
                 siguiente.style.display="inline-block";
                 anterior.style.display="inline-block";
                 siguiente.style.opacity=1;
                 document.getElementById('actividad2').style.display="none";
                 document.getElementById('max').innerHTML = 2;
             }
-            if (contador >= 3){ 
+            if (contador == 3){ 
                 document.getElementById('actividad2').style.display="none";
                 document.getElementById('actividad3').style.display="none";
                 document.getElementById('max').innerHTML = 3;
+                siguiente.style.display="inline-block";
+                anterior.style.display="inline-block";
                 
             }
+            if (contador == 4){ 
+                document.getElementById('actividad2').style.display="none";
+                document.getElementById('actividad3').style.display="none";
+                document.getElementById('actividad4').style.display="none";
+                document.getElementById('max').innerHTML = 4;
+                siguiente.style.display="inline-block";
+                anterior.style.display="inline-block";
+                
+            }
+            if (contador == 5){ 
+                document.getElementById('actividad2').style.display="none";
+                document.getElementById('actividad3').style.display="none";
+                document.getElementById('actividad4').style.display="none";
+                document.getElementById('actividad5').style.display="none";
+                document.getElementById('max').innerHTML = 5;
+                siguiente.style.display="inline-block";
+                anterior.style.display="inline-block";
+                
+            }
+            
             if (contador == 1){
                 siguiente.style.display="none";
                 document.getElementById('max').innerHTML = 1;
@@ -621,24 +678,47 @@ function VerActividad(){
             document.getElementById('actividad1').style.display="inline-block";
             document.getElementById('actividad2').style.display="none";
             document.getElementById('actividad3').style.display="none";
+            document.getElementById('actividad4').style.display="none";
+            document.getElementById('actividad5').style.display="none";
             siguiente.style.opacity=1;
             anterior.style.opacity=1;
             break;
         case 2:
-            document.getElementById('actividad2').style.display="inline-block";
             document.getElementById('actividad1').style.display="none";
+            document.getElementById('actividad2').style.display="inline-block";
             document.getElementById('actividad3').style.display="none";
+            document.getElementById('actividad4').style.display="none";
+            document.getElementById('actividad5').style.display="none";
             anterior.style.opacity=1;
             siguiente.style.opacity=1;
             break;
         case 3:
-            document.getElementById('actividad3').style.display="inline-block";
-            document.getElementById('actividad2').style.display="none";
             document.getElementById('actividad1').style.display="none";
-            siguiente.style.opacity=0;
+            document.getElementById('actividad2').style.display="none";
+            document.getElementById('actividad3').style.display="inline-block";
+            document.getElementById('actividad4').style.display="none";
+            document.getElementById('actividad5').style.display="none";
+            siguiente.style.opacity=1;
             anterior.style.opacity=1;
             break;
-        
+        case 4:
+            document.getElementById('actividad1').style.display="none";
+            document.getElementById('actividad2').style.display="none";
+            document.getElementById('actividad3').style.display="none";
+            document.getElementById('actividad4').style.display="inline-block";
+            document.getElementById('actividad5').style.display="none";
+            siguiente.style.opacity=1;
+            anterior.style.opacity=1;
+            break;
+        case 5:
+            document.getElementById('actividad1').style.display="none";
+            document.getElementById('actividad2').style.display="none";
+            document.getElementById('actividad3').style.display="none";
+            document.getElementById('actividad4').style.display="none";
+            document.getElementById('actividad5').style.display="inline-block";
+            siguiente.style.opacity=1;
+            anterior.style.opacity=1;
+            break;
     
         default:
             break;
