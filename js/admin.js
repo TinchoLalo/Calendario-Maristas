@@ -617,6 +617,7 @@ vermenos.addEventListener('submit', (e) => {
 
 function InsertStar(){
     var cantidad = document.getElementById('cantStar').innerHTML;
+
     if( cantidad == 0 || cantidad == ''){
         document.getElementById('destac').innerHTML = '<h4>No hay destacados</h4>';
         document.getElementById('fl').style.display = 'none';
@@ -640,6 +641,7 @@ function InsertStar(){
 
         // DESCARGAR PDF
         storage.ref('Calendario Maristas/'+fech+'/star'+i).getDownloadURL().then(function(destacados) {
+            console.log(destacados)
             var random=Math.floor(Math.random() * (4-1)+1);
             //INSERTAR ARCHIVOS EN EL HTML
             document.getElementById('simg'+i).src = destacados;
