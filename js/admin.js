@@ -260,11 +260,25 @@ function Calendar(mescal){
     }
 
 }
+// Caragar las actividades del día
 
+const fech = document.querySelectorAll(".t").forEach(el => {
+    el.addEventListener("click", e => {
+      e.preventDefault();
+      
+        const id = e.target.getAttribute("id");
+        document.getElementById('pre').style.display='block';
+        document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
+        cargarActividades(id);
+        document.getElementById('idi').innerHTML= id;
+
+      
+    });
+
+});
 
 // Verificar si hay actividades en cada fecha del mes
 function Verificar(ide,celda){
-    celda.id = '';
     if (mimes == meshoy){
         const libroRef = firebase
         .firestore()
@@ -279,18 +293,7 @@ function Verificar(ide,celda){
             if ( datos.actividad != '' ){
                 
                 celda.innerHTML += `<div class="circle" id="${ide}"></div>`;
-                celda.style.color="#1d87ae";
-                celda.id = ide;
-                celda.addEventListener("click", e => {
-                    e.preventDefault();
-                    
-                    const id = e.target.getAttribute("id");
-                    document.getElementById('pre').style.display='block';
-                    document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
-                    cargarActividades(id);
-            
-                });
-            
+                celda.style.color="#1d87ae";        
                 
             }     
             
@@ -475,28 +478,7 @@ function Sumar(){
 }
 
 
-// Caragar las actividades del día
 
-const fech = document.querySelectorAll(".t").forEach(el => {
-    el.addEventListener("click", e => {
-      e.preventDefault();
-      console.log('mimes: '+mimes)
-      console.log('mescal: '+mescal)
-      if (mimes == mescal){
-        const id = e.target.getAttribute("id");
-        document.getElementById('pre').style.display='block';
-        document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
-        cargarActividades(id);
-      }
-      else{
-        document.getElementById('diaA').innerHTML= '';
-      }
-      
-
-      
-    });
-
-});
 
 const actividades = document.getElementById('actividades');
 
@@ -563,6 +545,7 @@ function cargarActividades(id){
             
             if (contador == 1){
                 siguiente.style.display="none";
+                anterior.style.display="none";
                 document.getElementById('max').innerHTML = 1;
             }
                 
@@ -698,7 +681,6 @@ function CounterStar(){
 function VerActividad(num){
     var siguiente = document.getElementById('vermas');
     var anterior = document.getElementById('vermenos');
-    anterior.style.opacity=1;
     switch (num) {
         case 1:
             document.getElementById('actividad1').style.display="inline-block";
@@ -1167,7 +1149,7 @@ function Guardar(){
     const act3 =
     `<div class="actividad" ><h5 id="at3">${titl3}</h5>                            
      <p id="ad3"> ${des3}</p>                             
-     <a href="${url3}" target="_blank" rel="" id="ae3"><i class="fa fa-arrow-right" style="color: #ffffff;"></i><h4 id="al3">${link2}</h4></a> </div> `
+     <a href="${url3}" target="_blank" rel="" id="ae3"><i class="fa fa-arrow-right" style="color: #ffffff;"></i><h4 id="al3">${link3}</h4></a> </div> `
     4
 
     const act4 =
@@ -1622,4 +1604,8 @@ function CerrarTuto(){
 }
 function VerTuto(){
     document.getElementById('tuto').style.display="block";
+}
+
+function CerrarLoginIn(){
+    document.getElementById('loginin').style.display="none";
 }

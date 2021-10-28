@@ -621,6 +621,7 @@ function cargarActividades(id){
             
             if (contador == 1){
                 siguiente.style.display="none";
+                anterior.style.display="none";
                 document.getElementById('max').innerHTML = 1;
             }
                 
@@ -672,7 +673,6 @@ vermenos.addEventListener('submit', (e) => {
 function VerActividad(){
     var siguiente = document.getElementById('vermas');
     var anterior = document.getElementById('vermenos');
-    anterior.style.opacity=1;
     switch (num) {
         case 1:
             document.getElementById('actividad1').style.display="inline-block";
@@ -681,7 +681,6 @@ function VerActividad(){
             document.getElementById('actividad4').style.display="none";
             document.getElementById('actividad5').style.display="none";
             siguiente.style.opacity=1;
-            anterior.style.opacity=1;
             break;
         case 2:
             document.getElementById('actividad1').style.display="none";
@@ -854,4 +853,10 @@ function Destacados(sum){
         
     }
 }
+
+
+
+
+
+
 
