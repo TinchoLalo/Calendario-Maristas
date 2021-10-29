@@ -45,11 +45,37 @@ window.onload = function() {
 
     mescal = meshoy; 
     
-
-    Calendar(mescal);
+    cargarAnony();
+    
 
     
 }
+
+function cargarAnony() {
+    firebase.auth().signInAnonymously()
+      .then(() => {
+        // Signed in..
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
+  
+  
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        console.log("Anonymus Correcto");
+        var uid = user.uid;
+        Calendar(mescal);
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+  }
 
 
 function Calendar(mescal){
