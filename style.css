@@ -1280,6 +1280,12 @@ td {
         width: 2.5rem;
         
     }
+    #activi h3{
+        font-size: 1rem;
+        float: none;
+        margin-top: 1rem;
+        margin-right: 1.2rem;
+    }
     .burger {
         width: auto;
         margin-left: auto;
@@ -1320,6 +1326,13 @@ td {
     .noti {
         border-radius: none;
     }
+    #noticias .noti {
+        border-radius: 1em;
+        width: 80%;
+        height: 60% auto; 
+        /*/border: 1rem solid #ffffff;/*/
+        background-color: #ffffffd2;
+    }
     ul .nav-movil{
         height: 10rem;
         margin: auto;
@@ -1350,8 +1363,13 @@ td {
     
     #destacados .flech h3 i{
         font-size: 1.5rem;
-        margin: 0.5rem;
+        margin-top: 8rem;
+        margin-bottom: -5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
         position: relative;
+        display: flex;
+        z-index: 9;
         cursor: pointer;
         color: rgb(67, 67, 67);
         animation-duration: 7s;

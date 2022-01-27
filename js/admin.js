@@ -1137,31 +1137,31 @@ function Guardar(){
     const act1 = 
     `<div class="actividad" ><h5 id="at1">${titl1}</h5>                            
      <p id="ad1"> ${des1}</p>                             
-     <a href="${url1}" target="_blank" rel="" id="ae1"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al1">${link1}</h4></a> </div> `
+     <a href="${url1}" target="_blank" rel="" id="ae1"><h4 id="al1">${link1}</h4></a> </div> `
     ;
 
     const act2 = 
     `<div class="actividad" ><h5 id="at2">${titl2}</h5>                            
      <p id="ad2"> ${des2}</p>                             
-     <a href="${url2}" target="_blank" rel="" id="ae2"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al2">${link2}</h4></a> </div> `
+     <a href="${url2}" target="_blank" rel="" id="ae2"><h4 id="al2">${link2}</h4></a> </div> `
     ;
 
     const act3 =
     `<div class="actividad" ><h5 id="at3">${titl3}</h5>                            
      <p id="ad3"> ${des3}</p>                             
-     <a href="${url3}" target="_blank" rel="" id="ae3"><i class="fa fa-arrow-right" style="color: #ffffff;"></i><h4 id="al3">${link3}</h4></a> </div> `
+     <a href="${url3}" target="_blank" rel="" id="ae3"><h4 id="al3">${link3}</h4></a> </div> `
     4
 
     const act4 =
     `<div class="actividad" ><h5 id="at4">${titl4}</h5>                            
      <p id="ad4"> ${des4}</p>                             
-     <a href="${url4}" target="_blank" rel="" id="ae4"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al4">${link4}</h4></a> </div> `
+     <a href="${url4}" target="_blank" rel="" id="ae4"><h4 id="al4">${link4}</h4></a> </div> `
     ;
 
     const act5 =
     `<div class="actividad" ><h5 id="at5">${titl5}</h5>                            
      <p id="ad5"> ${des5}</p>                             
-     <a href="${url5}" target="_blank" rel="" id="ae5"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al5">${link5}</h4></a> </div> `
+     <a href="${url5}" target="_blank" rel="" id="ae5"><h4 id="al5">${link5}</h4></a> </div> `
     ;
 
     if (agregar == 1){
@@ -1344,31 +1344,31 @@ function Crear(){
     const eact1 =
     `<div class="actividad" ><h5 id="at1">${etitl1}</h5>                            
      <p id="ad1"> ${edes1}</p>                             
-     <a href="${eurl1}" target="_blank" id="ae1" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al1">${elink1}</h4></a> </div> `
+     <a href="${eurl1}" target="_blank" id="ae1" rel=""><h4 id="al1">${elink1}</h4></a> </div> `
     ;
 
     const eact2 =
     `<div class="actividad" ><h5 id="at2">${etitl2}</h5>                            
      <p id="ad2"> ${edes2}</p>                             
-     <a href="${eurl2}" target="_blank" rel="" id="ae2"><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al2">${elink2}</h4></a> </div> `
+     <a href="${eurl2}" target="_blank" rel="" id="ae2"><h4 id="al2">${elink2}</h4></a> </div> `
     ;
 
     const eact3 =
     `<div class="actividad" ><h5 id="at3">${etitl3}</h5>                            
      <p id="ad3"> ${edes3}</p>                             
-     <a href="${eurl3}" target="_blank" id="ae3" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al3">${elink3}</h4></a> </div> `
+     <a href="${eurl3}" target="_blank" id="ae3" rel=""><h4 id="al3">${elink3}</h4></a> </div> `
     ;
 
     const eact4 =
     `<div class="actividad" ><h5 id="at4">${etitl4}</h5>                            
      <p id="ad4"> ${edes4}</p>                             
-     <a href="${eurl4}" target="_blank" id="ae4" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al4">${elink4}</h4></a> </div> `
+     <a href="${eurl4}" target="_blank" id="ae4" rel=""><h4 id="al4">${elink4}</h4></a> </div> `
     ;
 
     const eact5 =
     `<div class="actividad" ><h5 id="at5">${etitl5}</h5>                            
      <p id="ad5"> ${edes5}</p>                             
-     <a href="${eurl5}" target="_blank" id="ae5" rel=""><i class="fa fa-arrow-right" style="color: #ffffff;" ></i><h4 id="al5">${elink5}</h4></a> </div> `
+     <a href="${eurl5}" target="_blank" id="ae5" rel=""><h4 id="al5">${elink5}</h4></a> </div> `
     ;
 
 
