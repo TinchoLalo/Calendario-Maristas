@@ -1282,6 +1282,7 @@ td {
     }
     .burger .line-menu {
         width: 2.5rem;
+        display: none;
         
     }
     #activi h3{
