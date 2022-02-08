@@ -911,20 +911,21 @@ footer a:hover {
 
 .fecha h2 {
     display: inline-block;
-    padding: .5rem;
+    padding: 1rem;
     font-size: 2rem;
     margin:auto;
     width: 9rem;
 }
 .fecha  {
     display: inline-block;
-    padding: .2rem;
+    padding: auto;
     font-size: 2rem;
     margin-left:auto;
     margin-right:auto;
     margin-top: 1rem;
     margin-bottom: 1rem;
     width: 100%;
+    text-align: center;
 }
 
 .dia:hover {
@@ -947,9 +948,7 @@ h1 { text-align: center; padding: 0.5em; }
 /*tabla del calendario*/
 #fecha { 
     max-width: 95%; 
-   
-    border-spacing: 4px; 
-
+    border-spacing: 0.3rem; 
 }
 #fecha th,#fecha td { 
     font-family: fredoka one, Arial, Helvetica, sans-serif;
@@ -1286,6 +1285,9 @@ td {
         margin-top: 1rem;
         margin-right: 1.2rem;
     }
+    .inicio #diaA {
+        font-size: 1.5rem;
+    }
     .burger {
         width: auto;
         margin-left: auto;
@@ -1397,43 +1399,45 @@ td {
         font-size: 1rem;
     }
     .inicio #titleAno {
-        font-size: 4rem;
+        font-size: 3rem;
         padding: auto;
         margin: auto;
         text-align: center;
     }
 
     .inicio {
-        width: 100%;
+        width: 95%;
         height: auto;
+        margin: auto;
+        text-align: center;
     }
     th {
-        width: 3em; 
-        height: 3em; 
+        width: 2rem; 
+        height: 2rem; 
     }
     td {
-        width: 3em; 
-        height: 3em; 
+        width: 2rem; 
+        height: 2rem; 
     }
     table {
-        width: 200px; 
+        width: 95%; 
+        text-align: center;
+        margin: auto;
     }
     tbody {
         width: 100%; 
     }
     #fecha {
-        width: 100%; 
+        width: 95%; 
     }
-    #fecha th,#fecha td { 
-        font-family: fredoka one, Arial, Helvetica, sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
-        width: 2em; 
-        height: 5em; 
-        border-radius: .3em;
-        margin:auto;
+    #flecha th {
+        width: 2rem; 
+        height: 2rem; 
+    }
+    #cuerpo{
+        margin: auto;
         text-align: center;
-    
+        width: 100%;
     }
     #fecha .circle { 
         color: #ffffff00; 
@@ -1461,7 +1465,7 @@ td {
         position: relative;
         top: 0;
         right: 0;
-        left: 0%;
+        left: 0;
         bottom: 0;
         margin:auto;
         text-align: center;
@@ -1532,7 +1536,7 @@ td {
         width: 95%;
     }
     #activi p{
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin-top: 1rem;
         margin-left: auto;
         margin-right: auto;

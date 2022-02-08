@@ -12,21 +12,6 @@ const noti = document.getElementById('noti');
 
 window.onload = function() {
     
-
-    // Cargar Noticias 
-    const notiRef = dt.collection(collection).doc('noticias');
-    
-    notiRef.get().then((doc) => {
-        if (!doc.exists) return;
-        const datos = doc.data();
-        noti.innerHTML = datos.actividad;
-        
-    }).catch(error => { 
-        console.log('Error al cargar noticias: ', error);
-    });
-
-    
-
     // OBTENER LA FECHA ACTUAL
 
     hoy=new Date(); //objeto fecha actual
@@ -69,7 +54,7 @@ function cargarAnony() {
       if (user) {
         // User is signed in, see docs for a list of available properties
         var uid = user.uid;
-        
+        Calendar(mescal);
         // ...
       } else {
         // User is signed out
@@ -80,7 +65,19 @@ function cargarAnony() {
 
 
 function Calendar(mescal){
+
+
+    // Cargar Noticias 
+    const notiRef = dt.collection(collection).doc('noticias');
     
+    notiRef.get().then((doc) => {
+        if (!doc.exists) return;
+        const datos = doc.data();
+        noti.innerHTML = datos.actividad;
+        
+    }).catch(error => { 
+        console.log('Error al cargar noticias: ', error);
+    });
     
     //  BUSCAR PRIMER DÍA POR NOMBRE DEL MES 
     document.getElementById('titleAno').innerHTML = `<h2 id="titleAno">${annohoy}</h2>`;
@@ -119,10 +116,11 @@ function Calendar(mescal){
         console.log('Cantidad: '+cantidad);
         document.getElementById('cantStar').innerHTML = cantidad;
 
-       
-
-
-
+        // mostrar destacados si hay
+        if (cantidad != 0){
+            document.getElementById('destacados').style.display = 'inline-block';
+            document.getElementById('noDestac').style.display = 'none';
+        }
 
         for (let i = 1; i <= cantidad; i++) {
             var random=Math.floor(Math.random() * (4-1)+1);
@@ -136,12 +134,16 @@ function Calendar(mescal){
             
 
         }
-        InsertStar();
         
-    })
+        
+        
+    });
+    InsertStar();
+    
 
 
     // OBTENER EN ENLACE DEL VIDEO
+    document.getElementById('video').style.display = 'none';
     document.getElementById('youtube').src = '';
     var you = document.getElementById('fech').innerHTML;
     const videoRef = dt.collection(collection).doc('video|'+you);
@@ -149,11 +151,16 @@ function Calendar(mescal){
         if (!doc.exists) return;
         const datos = doc.data();
         document.getElementById('youtube').src = datos.video;
+        document.getElementById('video').style.display = 'block';
+    
+
 
         
     }).catch(error => { 
         console.log('Error al cargar el video: ', error);
+        
     });
+
 
 
     for (i=0;i<7;i++) {
@@ -267,12 +274,12 @@ function Calendar(mescal){
 }
 function InsertStar(){
     var cantidad = document.getElementById('cantStar').innerHTML;
-
-    if( cantidad == 0 || cantidad == ''){
-        document.getElementById('destac').innerHTML = '<h4>No hay destacados</h4>';
-        document.getElementById('fl').style.display = 'none';
-        document.getElementById('fr').style.display = 'none';
+    // ocultar destacados si NO hay
+    if (cantidad == "0"){
+        document.getElementById('destacados').style.display = 'none';
+        document.getElementById('noDestac').style.display = 'block';
     }
+
     if( cantidad <= 4){
 
         document.getElementById('fl').style.display = 'none';
