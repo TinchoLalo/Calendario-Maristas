@@ -867,7 +867,7 @@ h2{
     font-family: Chalkboard, Arial, Helvetica, sans-serif;
     color: #5fbcb9;
     font-size: 1.4rem;
-    text-align: justify;
+    text-align: left;
     padding-top: 2rem;
     padding-bottom: 5rem;
     width: 80%;
@@ -1275,6 +1275,11 @@ td {
         margin-left: auto;
         margin-right: auto;
     }
+    /*tabla del calendario*/
+    #fecha { 
+        max-width: 90%; 
+        border-spacing: 0.1rem; 
+    }
     .burger .line-menu {
         width: 2.5rem;
         
@@ -1459,7 +1464,7 @@ td {
     }
     #fecha th { 
         color: #ffffff; 
-        font-size: .7em;
+        font-size: .7rem;
         background-color: #1d87ae; 
         z-index: 20;
         position: relative;
