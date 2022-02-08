@@ -1278,7 +1278,20 @@ td {
     /*tabla del calendario*/
     #fecha { 
         max-width: 90%; 
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
         border-spacing: 0.1rem; 
+    }
+    #inicio {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #cuerpo {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     .burger .line-menu {
         width: 2.5rem;
