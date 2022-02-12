@@ -636,6 +636,20 @@ header {
 
 
 /* ========== INICIO ========= */
+#desBan p{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: fredoka one, Arial, Helvetica, sans-serif;
+    color: #00609c79;
+    width: 80%;
+}
+#desBan b {
+    color: #009c8579;
+}
 .info a {
     text-decoration: none;
 }
@@ -1244,6 +1258,9 @@ td {
         margin:auto;
         text-align: center;
     
+    }
+    #desBan p{
+        font-size: 0.8rem;
     }
    
     th {

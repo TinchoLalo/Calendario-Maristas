@@ -5,6 +5,7 @@ lasemana=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
 const dt = firebase.firestore();
 
 const banner = document.getElementById('BAN');
+const des = document.getElementById('desBan');
 const cuerpo = document.getElementById('cuerpo')
 const collection = document.getElementById('title').innerHTML;
 const noti = document.getElementById('noti');
@@ -230,43 +231,67 @@ function Calendar(mescal){
     switch (meshoy ) {
         case 0:
             banner.src = 'img/ENERO.jpg';
+            des.innerHTML = '<p>Las 3 violetas simbolizan los 3 valores con los que San Marcelino deseó que vivamos la misión: Humildad, Sencillez y Modestia.</p>';
             break;
+
         case 1:
         banner.src = 'img/FEBRERO.jpg';
+        des.innerHTML = '<p>Ser constructores de fraternidad en la propia familia, en la vida o en comunidad. Con nuestra integración, aceptación y servicio.</p>';
         break;
+
         case 2:
         banner.src = 'img/MARZO.jpg';
+        des.innerHTML = '<p>Los juegos, las actividades al aire libre, son una forma de expresión y de comunicación. Nos ayudan a construir puentes de esperanza.</p>';
         break;
+
         case 3:
         banner.src = 'img/ABRIL.jpg';
+        des.innerHTML = '<p>Les digo que no volveré a beber del fruto de la vid hasta que venga el reino de Dios. (Lc 22: 18).</p>';
         break;
+
         case 4:
         banner.src = 'img/MAYO.jpg';
+        des.innerHTML = '<p>Admiremos las maravillas de la naturaleza. Su belleza nos descubre la presencia de Dios, con quietud y silencio. (Cf 1 re Reyes 19,12).</p>';
         break;
+
         case 5:
         banner.src = 'img/JUNIO.jpg';
+        des.innerHTML = '<p> <b> 1) Dalmática:</b> Esta pieza forma parte del tesoro de la colección. Data de principios del siglo XX y fue utilizada por Marcelino Champagnat.<b> 2) Chasca:</b> La chasca es un elemento muy conocido en el mundo Marista. Hasta los 80 fue utilizada para que el profesor pudiera indicar a los alumnos qué hacer sin necesidad de hablar, a través de un código de sonidos.<b>3) Llave:</b> Pertenece al que había sido el dormitorio de Marcelino en el Hermitage.</p>';
         break;
+
         case 6:
             banner.src = 'img/JULIO.jpg';
+            des.innerHTML = '<p>Incluso en las situaciones más adversas pueden surgir la esperanza y el amor. La vida siempre nos ofrece una nueva oportunidad.</p>';
             break;
+
         case 7:
             banner.src = 'img/AGOSTO.jpg';
+            des.innerHTML = '<p>Nuestra Buena Madre es la luz que nos guía y acompaña. Su recurso es un preciado tesoro.</p>';
             break;
+
         case 8:
         banner.src = 'img/SEPTIEMBRE.jpg';
+        des.innerHTML = '<p>La solidaridad se encuentra en el ADN marista. Es la base de la obra de Marcelino Champagnat</p>';
         break;
+
         case 9:
             banner.src = 'img/OCTUBRE.jpg';
+            des.innerHTML = '<p>Las infancias son el eje central de nuestra misión. Hemos de respetar y hacer valer sus derechos.</p>';
             break;
+
         case 10:
             banner.src = 'img/NOVIEMBRE.jpg';
+            des.innerHTML = '<p>El cuidado y la protección de nuestra casa común necesita de nuestras acciones positivas.</p>';
             break;
+
         case 11:
             banner.src = 'img/DICIEMBRE.jpg';
+            des.innerHTML = '<p>Celebremos juntos el nacimiento de Jesús, hijo de María y José, símbolo de esperanza para la humanidad.</p>';
             break;
     
         default:
             banner.src = 'img/ENERO.jpg';
+            des.innerHTML = '<p>Las 3 violetas simbolizan los 3 valores con los que San Marcelino deseó que vivamos la misión: Humildad, Sencillez y Modestia.</p>';
             break;
     }
 
