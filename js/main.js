@@ -131,14 +131,15 @@ function Calendar(mescal){
             </a>
             </div>`;
 
-            
-
         }
-        
+        InsertStar();
         
         
     });
-    InsertStar();
+    if (cantidad == 0){
+        InsertStar();
+    }
+    
     
 
 

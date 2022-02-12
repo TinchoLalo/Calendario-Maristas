@@ -12,6 +12,11 @@ var desnoti =document.getElementById('desnoti');
 
 
 window.onload = function() {
+
+    LoadWindow();
+}
+
+function LoadWindow(){
     // CONTAR DESTACADOS  
     
     var star = 0;
@@ -916,6 +921,7 @@ login.addEventListener('submit', (e) => {
       .then(userCredential => {
         console.log("Login");
         document.getElementById('gestor').style.display="none";
+        LoadWindow();
   
         
       }).catch(error => {
@@ -925,9 +931,14 @@ login.addEventListener('submit', (e) => {
 
 // ==== M A N T E N E R    L A     S E C I Ó N ====
 auth.onAuthStateChanged(user => {
- 
-    if(user != null){
+    // si el usuario es distinto a anonimus
+        
+    if(user != null && user.id != '(anonimo)' ){
         document.getElementById('gestor').style.display="none";
+    }
+    else{
+        document.getElementById('gestor').style.display="block";
+        console.log("No esta logeado");
     }
 
 

@@ -772,6 +772,8 @@ header {
     border-radius: 3rem;
     z-index: 10;
     position: relative;
+    /*/resplandor exterior/*/
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
 }
 
 #destacados .flech h3 i{
