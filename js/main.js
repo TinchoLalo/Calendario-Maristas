@@ -40,7 +40,6 @@ function cargarAnony() {
     firebase.auth().signInAnonymously()
       .then(() => {
         // Signed in..
-        Calendar(mescal);
         
       })
       .catch((error) => {
@@ -355,7 +354,6 @@ function CounterStar(){
 
 // Verificar si hay actividades en cada fecha del mes
 function Verificar(ide,celda){
-    celda.id = '';
     if (mimes == meshoy){
         const libroRef = firebase
         .firestore()
@@ -370,8 +368,10 @@ function Verificar(ide,celda){
             if ( datos.actividad != '' ){
                 
                 celda.innerHTML += `<div class="circle" id="${ide}"></div>`;
-                celda.style.color="#1d87ae";
-                celda.id = ide;
+                
+                celda.style.color="#1d87ae";   
+                
+
                 celda.addEventListener("click", e => {
                     e.preventDefault();
                     
@@ -379,10 +379,8 @@ function Verificar(ide,celda){
                     document.getElementById('pre').style.display='block';
                     document.getElementById('diaA').innerHTML= 'Actividades del Día '+ id;
                     cargarActividades(id);
-            
+
                 });
-            
-                
             }     
             
         });
@@ -390,7 +388,10 @@ function Verificar(ide,celda){
     
     
                 
-}  
+} 
+    
+    
+    
 
 
 

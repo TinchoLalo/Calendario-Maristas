@@ -293,7 +293,9 @@ function Verificar(ide,celda){
             if ( datos.actividad != '' ){
                 
                 celda.innerHTML += `<div class="circle" id="${ide}"></div>`;
-                celda.style.color="#1d87ae";        
+                celda.style.color="#1d87ae";   
+                
+                     
                 
             }     
             
