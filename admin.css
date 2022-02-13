@@ -1829,6 +1829,32 @@ progress::-webkit-progress-value {
     
 }
 
+#visitas {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+#visitas h5 {
+    font-family: Chalkboard, Arial, Helvetica, sans-serif;
+    color: #5fbcb9;
+    font-size: 3rem;
+    padding-top: 2rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+}
+#visitas h4 {
+    font-family: Chalkboard, Arial, Helvetica, sans-serif;
+    color: #5f8cbc;
+    font-size: 5rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
 
 
 
@@ -1837,6 +1863,7 @@ footer {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    background-color: #f2f2f2e9;
 }
 footer img{
     text-align: center;
@@ -2228,6 +2255,12 @@ td {
         margin-top:-1.8rem;
         text-align: center;
         
+    }
+    #visitas h5 {
+        font-size: 2.5rem;
+    }
+    #visitas h4 {
+        font-size: 3rem;
     }
 }
 @media (max-width: 550px) {

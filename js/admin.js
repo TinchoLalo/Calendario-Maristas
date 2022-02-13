@@ -1622,3 +1622,22 @@ function VerTuto(){
 function CerrarLoginIn(){
     document.getElementById('loginin').style.display="none";
 }
+
+
+
+
+
+// CARGAR VISITAS
+const visitas = document.getElementById('visit');
+const loadVisit = dt.collection(collection).doc('visitas');
+    
+loadVisit.get().then((doc) => {
+    if (!doc.exists) return;
+    const datos = doc.data(); 
+    visitas.innerHTML = datos.visitas;
+    
+}).catch(error => { 
+    console.log('Error al cargar visitas: ', error);
+});
+
+

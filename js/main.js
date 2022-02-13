@@ -54,6 +54,24 @@ function cargarAnony() {
       if (user) {
         // User is signed in, see docs for a list of available properties
         var uid = user.uid;
+
+        // VISISTAS
+        
+        const visit = firebase.firestore().collection(collection).doc("visitas");
+
+        visit
+        .update({
+            visitas: firebase.firestore.FieldValue.increment(1),
+        })
+        .then(() => {
+            console.log("Visita Actualizada Correctamente"); // Documento actualizado
+        })
+        .catch((error) => {
+            console.log("Error al Actulizar las Visitas", error);
+        });
+
+
+
         Calendar(mescal);
         // ...
       } else {
@@ -62,6 +80,8 @@ function cargarAnony() {
       }
     });
   }
+
+
 
 
 function Calendar(mescal){
