@@ -330,6 +330,7 @@ function InsertStar(){
         document.getElementById('fl').style.display = 'none';
         document.getElementById('fr').style.display = 'none';
     }
+    
     if( cantidad > 4){
 
         document.getElementById('fl').style.display = 'block';
@@ -388,7 +389,7 @@ function CounterStar(){
             }
             else{
                 if (star > 1){
-                    testElement.style.display="none";
+                    testElement.style.display="block";
                 }
             }
             

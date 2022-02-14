@@ -2,7 +2,8 @@
 
 body {
     width: 100%;
-    margin: 0%;
+    margin:auto;
+    text-align: center;
 }
 html {
     scroll-behavior: smooth;
@@ -271,6 +272,7 @@ body::-webkit-scrollbar-thumb:hover {
     color: #fff;
     letter-spacing: .01rem;
 }
+
 #titleAno h2 {
     font-family: Chalkboard, Arial, Helvetica, sans-serif;
     margin-left: 0;
@@ -670,13 +672,17 @@ header {
 .inicio #diaA {
     font-size: 2.5rem;
 }
+.title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 .title h1 {
     font-family: fredoka one, Arial, Helvetica, sans-serif;
     margin-top: 0;
     color: #00609c;
     font-size: 3rem;
     text-align: center;
-    padding: 1rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1099,6 +1105,11 @@ td {
     }
     .title {
         width: 50%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .title h1 {
         text-align: center;
         margin-left: auto;
         margin-right: auto;
