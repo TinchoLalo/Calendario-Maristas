@@ -240,7 +240,7 @@ body::-webkit-scrollbar-thumb:hover {
 #pre h5 {
     letter-spacing: .01rem;
     font-size: 2.5rem;
-    font-family: fredoka one, Arial, Helvetica, sans-serif;
+    font-family: 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
     margin-left: 5rem;
     padding-left: 1rem;
     margin-top: 1rem;
@@ -645,7 +645,7 @@ header {
     margin-bottom: 2rem;
     text-align: center;
     font-size: 1.5rem;
-    font-family: fredoka one, Arial, Helvetica, sans-serif;
+    font-family: 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
     color: #00609c79;
     width: 80%;
 }
@@ -664,7 +664,7 @@ header {
 
 }
 .inicio h2 {
-    font-family: fredoka one, Arial, Helvetica, sans-serif;
+    font-family: 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
     margin-top: -0.3rem;
     color: #009C90;
     font-size: 2rem;
@@ -678,7 +678,7 @@ header {
     margin-right: auto;
 }
 .title h1 {
-    font-family: fredoka one, Arial, Helvetica, sans-serif;
+    font-family: 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
     margin-top: 0;
     color: #00609c;
     font-size: 3rem;
@@ -725,7 +725,7 @@ header {
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
-    font-family: Baloo Bhai, fredoka one, Arial, Helvetica, sans-serif;
+    font-family: Baloo Bhai, 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
     color: #0071AF;
     font-size: 18px;
     padding: 20px;
@@ -828,7 +828,7 @@ h2{
 
 }
 #destacados h4 {
-    font-family: fredoka one, Arial, Helvetica, sans-serif;
+    font-family: 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
     margin-top: 0;
     color: #00609c;
     font-size: 1.5rem;
@@ -920,7 +920,7 @@ footer a {
   text-decoration: none;
   margin-left: auto;
   margin-right: auto;
-  font-family: fredoka one, Arial, Helvetica, sans-serif;
+  font-family: 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
   color: #0071AF;
   transition: all 0.5s;
   transition-delay: 0s;
@@ -975,7 +975,7 @@ h1 { text-align: center; padding: 0.5em; }
     border-spacing: 0.3rem; 
 }
 #fecha th,#fecha td { 
-    font-family: fredoka one, Arial, Helvetica, sans-serif;
+    font-family: 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
     font-size: 2rem;
     font-weight: 600;
     width: 15rem; 
@@ -1200,7 +1200,7 @@ td {
         width: 10rem; 
     }
     #fecha th,#fecha td { 
-        font-family: fredoka one, Arial, Helvetica, sans-serif;
+        font-family: 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
         font-size: 1.6em;
         font-weight: 600;
         width: 4em; 
@@ -1262,7 +1262,7 @@ td {
 }
 @media (max-width: 750px) {
     #fecha th,#fecha td { 
-        font-family: fredoka one, Arial, Helvetica, sans-serif;
+        font-family: 'Fredoka One', cursiva, Arial, Helvetica, sans-serif;
         font-size: 1.2em;
         font-weight: 600;
         width: 2em; 
