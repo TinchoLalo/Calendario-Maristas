@@ -1074,7 +1074,12 @@ td {
     background-color: #efefef; 
     cursor: pointer;
 }
-
+#inforMovil img {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    display: none;
+}
 
 @media (max-width: 992px) {
     body {
@@ -1301,6 +1306,9 @@ td {
         margin-top:-1.8rem;
         text-align: center;
         
+    }
+    #inforMovil img {
+        display: block;
     }
 }
 @media (max-width: 550px) {
