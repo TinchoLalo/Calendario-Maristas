@@ -1273,7 +1273,7 @@ td {
     
     }
     #desBan p{
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
    
     th {
@@ -1584,20 +1584,21 @@ td {
         
     }
     #activi  h5{
-        font-size: 2rem;
+        font-size: 2.5rem;
+        color: #ffffff;
         margin-top: -2rem;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-        width: 95%;
+        width: 85%;
     }
     #activi p{
-        font-size: 1rem;
+        font-size: 1.3rem;
         margin-top: 1rem;
         margin-left: auto;
         margin-right: auto;
         text-align: left;
-        width: 95%;
+        width: 85%;
     }
     
     #activi a {
