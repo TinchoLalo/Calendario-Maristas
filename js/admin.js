@@ -1459,7 +1459,7 @@ const subirA = document.getElementById('crearA');
 
 subirA.addEventListener('click', e=> {
     e.preventDefault();
-    const file = ($('#myFileA'))[0].files[0];
+    const file = document.getElementById('myFileA')[0].files[0];
     const name = document.getElementById('fech').innerHTML;
     var canti = document.getElementById('cantStar').innerHTML;
     canti = Number(canti)+1;
