@@ -18,7 +18,7 @@
 
 <!-- ====  Cuerpo ==== -->
 <body>
-    <header class="header-area header-sticky">
+    <header class="header-area header-sticky" style="display: none;">
 
         <nav class="main-nav " id="inicio">
             <ul class="nav" >
@@ -157,61 +157,62 @@
         
         <br><br>
     </div>
+    <div style="display: none;">
+        <div id="inforMovil" >
+            <img src="img/info.jpg" alt="">
+        </div>
+        <section id="destacados">
+            <br><br>
+            <h2 >DESTACADOS</h2>
+            <div class="destacados" id="destac">
+                
+                
 
-    <div id="inforMovil" >
-        <img src="img/info.jpg" alt="">
-    </div>
-    <section id="destacados">
+                
+                
+            </div>
+
+            
+
+            <div id="fl" class="flech" >
+                <h3 onclick="IRestar()" style="float: left;"><i class="fa fa-arrow-left"></i></h3>
+            </div>
+            <div id="fr" class="flech">
+                <h3 onclick="ISumar()" style="float: right;"><i class="fa fa-arrow-right"></i></h3>
+            </div>
+
+            
+        </section>
+
+        <div id="noDestac" style="display: none; text-align: center;margin: auto;">
+            <br><br><br><br>
+            <h2 >NO HAY DESTACADOS</h2>
+            <br><br>
+        </div>
+
+        <div id="video" style="display: none;">
+            <div class="marco">
+                
+                <iframe id="youtube"  src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
+            </div>
+            
+
+        </div>
+
+        
+
         <br><br>
-        <h2 >DESTACADOS</h2>
-        <div class="destacados" id="destac">
-            
-            
-
-            
-            
-        </div>
-
+        <section id="noticias">
+            <h2 >NOTICIAS</h2>
+            <div class="noti" id="noti">
+                
+            </div>
         
 
-        <div id="fl" class="flech" >
-            <h3 onclick="IRestar()" style="float: left;"><i class="fa fa-arrow-left"></i></h3>
-        </div>
-        <div id="fr" class="flech">
-            <h3 onclick="ISumar()" style="float: right;"><i class="fa fa-arrow-right"></i></h3>
-        </div>
 
-        
-    </section>
-
-    <div id="noDestac" style="display: none; text-align: center;margin: auto;">
-        <br><br><br><br>
-        <h2 >NO HAY DESTACADOS</h2>
-        <br><br>
+        </section>
     </div>
-
-    <div id="video" style="display: none;">
-        <div class="marco">
-              
-            <iframe id="youtube"  src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-           
-        </div>
-        
-
-    </div>
-
-    
-
-    <br><br>
-    <section id="noticias">
-        <h2 >NOTICIAS</h2>
-        <div class="noti" id="noti">
-            
-        </div>
-       
-
-
-    </section>
 
 
    <footer>

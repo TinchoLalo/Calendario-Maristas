@@ -22,8 +22,6 @@
             <ul class="nav" >
                 <li><a href="https://calendariomaristas.netlify.app/">Inicio</a></li>
                 <li><a href="#calendar" >Calendario</a></li>
-                <li><a href="#destacados">Destacados</a></li>
-                <li><a href="#noticias">Noticias</a></li>
                 <li><a href="#" onclick="VerTuto()">Tutorial</a></li>
                 <li><a href="#"onclick="loginIn()">Crear Usuario</a></li</li>
                 <li><a href="#"onclick="loginOut()">Salir</a></li>
@@ -43,8 +41,6 @@
                 <div class="line-menu"><br></div>
                 <li><a href="https://calendariomaristas.netlify.app/" onclick="CerrarMenu()">Inicio</a></li>
                 <li><a href="#calendar" onclick="CerrarMenu()">Calendario</a></li>
-                <li><a href="#destacados" onclick="CerrarMenu()">Destacados</a></li>
-                <li><a href="#noticias" onclick="CerrarMenu()">Noticias</a></li>
                 <li><a href="#"onclick="loginOut()">Tutorial</a></li>
                 <li><a href="#"onclick="loginIn()">Crear Usuario</a></li</li>
                 <li><a href="#"onclick="loginOut()">Salir</a></li>
@@ -353,176 +349,177 @@
         <br><br><br>
     </div>
 
-
-    <section id="destacados">
-        <br><br>
-        <h2 >DESTACADOS</h2>
-        <div class="destacados" id="destac">
-            
-            
-
-            
-            
-        </div>
-
-        <button onclick="CrearStar()">
-            Crear
-        </button>
-
-
-        <div id="sub">
-
-            <div id="subir">
-
-                <div id="crearStar" style="display: none;">
-    
-                    <form id="subirA" >
-                        <br>
-                        <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
-                        <h3>Crear Archivo</h3>
-                        <div class="cont-subir">
-                          <input type="file" name="file" id="myFileA" value="upload">
-               
-                          
-                          <div id="crearA">
-                            <h5> 
-                              
-                              Subir
-                             
-                            </h5>
-                          </div>
-    
-                          <progress value="0" max="100" id="uploaderA"></progress>
-                          
-                        </div>
-                        <br>
-                        
-                      </form>
-                </div>
-                <div id="reemStar" style="display: none;">
-        
-                    <form id="subirB">
-                        <br>
-                        <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
-                        <h3>Reemplazar Archivo</h3>
-                        <div class="cont-subir">
-                          <input type="file" name="file" id="myFileB" value="upload">
-               
-                          
-                          <div id="crearB">
-                            <h5> 
-                              
-                              Reemplazar
-                             
-                            </h5>
-                          </div>
-    
-                          <progress value="0" max="100" id="uploaderB"></progress>
-                          
-                        </div>
-                        <br>
-                        
-                      </form>
-                </div>
+    <div style="display: none;">
+        <section id="destacados">
+            <br><br>
+            <h2 >DESTACADOS</h2>
+            <div class="destacados" id="destac">
                 
-                <div id="borrarStar" style="display: none;">
+                
+
+                
+                
+            </div>
+
+            <button onclick="CrearStar()">
+                Crear
+            </button>
+
+
+            <div id="sub">
+
+                <div id="subir">
+
+                    <div id="crearStar" style="display: none;">
         
-                    <form id="subirC">
-                        <br>
-                        <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
-                        <h3>Borrar Archivo</h3>
-                        <div class="cont-subir" style="display: inline-block; ">
-                          
-                            <div id="crearC">
+                        <form id="subirA" >
+                            <br>
+                            <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                            <h3>Crear Archivo</h3>
+                            <div class="cont-subir">
+                            <input type="file" name="file" id="myFileA" value="upload">
+                
+                            
+                            <div id="crearA">
                                 <h5> 
-                                  
-                                  Borrar
-                                 
+                                
+                                Subir
+                                
                                 </h5>
                             </div>
-                          
-                          
-                        </div>
-                        <br>
-                        
-                      </form>
+        
+                            <progress value="0" max="100" id="uploaderA"></progress>
+                            
+                            </div>
+                            <br>
+                            
+                        </form>
+                    </div>
+                    <div id="reemStar" style="display: none;">
+            
+                        <form id="subirB">
+                            <br>
+                            <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                            <h3>Reemplazar Archivo</h3>
+                            <div class="cont-subir">
+                            <input type="file" name="file" id="myFileB" value="upload">
+                
+                            
+                            <div id="crearB">
+                                <h5> 
+                                
+                                Reemplazar
+                                
+                                </h5>
+                            </div>
+        
+                            <progress value="0" max="100" id="uploaderB"></progress>
+                            
+                            </div>
+                            <br>
+                            
+                        </form>
+                    </div>
+                    
+                    <div id="borrarStar" style="display: none;">
+            
+                        <form id="subirC">
+                            <br>
+                            <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                            <h3>Borrar Archivo</h3>
+                            <div class="cont-subir" style="display: inline-block; ">
+                            
+                                <div id="crearC">
+                                    <h5> 
+                                    
+                                    Borrar
+                                    
+                                    </h5>
+                                </div>
+                            
+                            
+                            </div>
+                            <br>
+                            
+                        </form>
+                    </div>
+                    <div id="editarStar" style="display: none;">
+            
+                        <form id="subirD">
+                            <br>
+                            <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
+                            <h3>Editar Archivo</h3>
+                            <div class="cont-subir" style="display: inline-block; ">
+                            
+                            <button  id="ReemplazarStar" class="subirBoton" style=" margin: 2rem;width: auto;"> Reemplazar</button>
+                            <button  id="BorrarStar" class="subirBoton" style=" margin: 2rem; width: auto;"> Borrar</button>
+                            
+                            </div>
+                            <br>
+                            
+                        </form>
+                    </div>
+        
                 </div>
-                <div id="editarStar" style="display: none;">
-        
-                    <form id="subirD">
-                        <br>
-                        <h3 onclick="CerrarStar()"><i class="fa fa-close" style="color: #ffffff;"></i></h3>
-                        <h3>Editar Archivo</h3>
-                        <div class="cont-subir" style="display: inline-block; ">
-                          
-                          <button  id="ReemplazarStar" class="subirBoton" style=" margin: 2rem;width: auto;"> Reemplazar</button>
-                          <button  id="BorrarStar" class="subirBoton" style=" margin: 2rem; width: auto;"> Borrar</button>
-                          
-                        </div>
-                        <br>
-                        
-                      </form>
-                </div>
-    
-            </div>
 
-        </div>
-        
-
-        
-
-        
-
-        <div id="fl" class="flech" >
-            <h3 onclick="IRestar()" style="float: left;"><i class="fa fa-arrow-left"></i></h3>
-        </div>
-        <div id="fr" class="flech">
-            <h3 onclick="ISumar()" style="float: right;"><i class="fa fa-arrow-right"></i></h3>
-        </div>
-
-        
-    </section>
-
-
-    <div id="video">
-        <div class="marco">
-            <iframe id="youtube"  src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <br><br><br>
-        <input type="text" placeholder="Enlace" id="yourl">
-        <div id="crearV">
-            <h5> 
-              
-              Guardar
-             
-            </h5>
-        </div>
-    </div>
-
-
-    <br><br>
-    <section id="noticias">
-        <h2 >NOTICIAS</h2>
-        <div class="noti">
-            <div id="enoti">
-                <input type="text" id="tenoti">
-                <textarea name="" id="desnoti" >
-
-                </textarea>
             </div>
             
+
             
-            <button onclick="AgregarNoti()"> 
+
+            
+
+            <div id="fl" class="flech" >
+                <h3 onclick="IRestar()" style="float: left;"><i class="fa fa-arrow-left"></i></h3>
+            </div>
+            <div id="fr" class="flech">
+                <h3 onclick="ISumar()" style="float: right;"><i class="fa fa-arrow-right"></i></h3>
+            </div>
+
+            
+        </section>
+
+
+        <div id="video">
+            <div class="marco">
+                <iframe id="youtube"  src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <br><br><br>
+            <input type="text" placeholder="Enlace" id="yourl">
+            <div id="crearV">
+                <h5> 
+                
                 Guardar
-            </button>
-            <div id="notie" style="display: none;"></div>
-            
+                
+                </h5>
+            </div>
         </div>
+
+
+        <br><br>
+        <section id="noticias">
+            <h2 >NOTICIAS</h2>
+            <div class="noti">
+                <div id="enoti">
+                    <input type="text" id="tenoti">
+                    <textarea name="" id="desnoti" >
+
+                    </textarea>
+                </div>
+                
+                
+                <button onclick="AgregarNoti()"> 
+                    Guardar
+                </button>
+                <div id="notie" style="display: none;"></div>
+                
+            </div>
+            
         
-       
 
 
-    </section>
+        </section>
+    </div>
     <br><br><br>
     <section id="visitas">
 
